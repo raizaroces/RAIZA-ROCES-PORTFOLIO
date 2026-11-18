@@ -1,374 +1,493 @@
-// Authentic Certificates & Credentials extracted directly from the uploaded CERTIFICATES folder
+// Authentic Certificates & Credentials catalog extracted from uploaded CERTIFICATES folder
+// Strictly sorted in descending chronological order (Newest -> Oldest)
 export const certificatesData = [
-  // --- CISCO & DICT NETWORKING ACADEMY ---
+  // 1. October 30, 2026 - DataCamp Claude 101
   {
-    id: "cisco-hardware",
-    title: "Computer Hardware Basics",
-    issuer: "Cisco Networking Academy & DICT-ITU DTC Initiative",
-    date: "September 26, 2026",
-    category: "IT Infrastructure",
-    certId: "3aba582d-3e22-4b7a-a1a2-63fb806c9926",
-    previewImage: "assets/certificates/previews/cisco_hardware.png",
-    documentUrl: "assets/certificates/CISCO/ComputerHardwareBasics Certificate.pdf",
-    additionalDocUrl: "assets/certificates/CISCO/Computer Hardware Basics certificate from DICT-ITU DTC.pdf",
-    type: "pdf",
-    description: "Successfully achieved student level credential for computer hardware installation, PC repair, component upgrades, laptop maintenance, and fire/safety standards."
-  },
-  {
-    id: "cisco-os",
-    title: "Operating Systems Basics",
-    issuer: "Cisco Networking Academy & DICT-ITU DTC Initiative",
-    date: "September 27, 2026",
-    category: "IT Infrastructure",
-    certId: "316adb8d-a8dc-4803-884f-34c2d71d2f13",
-    previewImage: "assets/certificates/previews/cisco_os.png",
-    documentUrl: "assets/certificates/CISCO/OperatingSystemsBasics Certificate.pdf",
-    additionalDocUrl: "assets/certificates/CISCO/Operating Systems Basics certificate from DICT-ITU DTC.pdf",
-    type: "pdf",
-    description: "Comprehensive training in Windows and Linux operating systems, user administration, file systems, disk management, and security configurations."
-  },
-  {
-    id: "cisco-networking",
-    title: "Networking Basics",
-    issuer: "Cisco Networking Academy & DICT-ITU DTC Initiative",
-    date: "September 28, 2026",
-    category: "IT Infrastructure",
-    certId: "7e3cddfc-fb8b-4296-be0c-794b4b6ee572",
-    previewImage: "assets/certificates/previews/cisco_networking.png",
-    documentUrl: "assets/certificates/CISCO/Networking Basics Cerificate.pdf",
-    additionalDocUrl: "assets/certificates/CISCO/Networking Basics certificate from DICT-ITU DTC.pdf",
-    type: "pdf",
-    description: "Fundamentals of computer networks, IPv4/IPv6 addressing, subnetting, routers, switches, network protocols, and troubleshooting."
-  },
-  {
-    id: "cisco-modern-ai",
-    title: "Introduction to Modern AI",
-    issuer: "Cisco Networking Academy",
-    date: "September 30, 2026",
-    category: "AI & Machine Learning",
-    certId: "a9e0ac48-06d7-431a-92a9-880e7001c521",
-    previewImage: "assets/certificates/previews/cisco_modern_ai.png",
-    documentUrl: "assets/certificates/CISCO/IntrotoModernAI.pdf",
-    additionalDocUrl: "assets/certificates/CISCO/Introduction_to_Modern_AI_certificate.pdf",
-    type: "pdf",
-    description: "Foundational concepts of artificial intelligence, neural networks, machine learning algorithms, deep learning applications, and AI ethics."
-  },
-
-  // --- AWS TRAINING & CERTIFICATION ---
-  {
-    id: "aws-prompt-eng",
-    title: "Essentials of Prompt Engineering",
-    issuer: "AWS Training and Certification",
-    date: "October 01, 2026",
-    category: "AI & Machine Learning",
-    previewImage: "assets/certificates/previews/aws_prompt_engineering.jpg",
-    documentUrl: "assets/certificates/AWS/Essentials of Prompt Engineering (AWS).pdf",
-    type: "pdf",
-    description: "Advanced techniques for crafting effective prompts, zero-shot and few-shot reasoning, chain-of-thought, and optimizing foundational AI models on AWS."
-  },
-  {
-    id: "aws-gen-ai",
-    title: "Introduction to Generative AI - Art of the Possible",
-    issuer: "AWS Training and Certification",
-    date: "October 01, 2026",
-    category: "AI & Machine Learning",
-    previewImage: "assets/certificates/previews/aws_generative_ai.jpg",
-    documentUrl: "assets/certificates/AWS/Introduction to Generative AI (AWS).pdf",
-    type: "pdf",
-    description: "Comprehensive introduction to generative AI architectures, large language models (LLMs), multimodal foundation models, and business use-cases."
-  },
-
-  // --- DATACAMP & ICT STANDARDS ---
-  {
-    id: "datacamp-claude",
+    id: "datacamp-claude-101",
     title: "Claude 101",
     issuer: "DataCamp",
     date: "October 30, 2026",
+    isoDate: "2026-10-30",
     category: "AI & Machine Learning",
-    certId: "#50,439,826",
-    previewImage: "assets/certificates/previews/datacamp_claude101.svg",
-    documentUrl: "assets/certificates/Certificate Claude 101.pdf",
-    type: "pdf",
-    description: "Hands-on implementation of Anthropic's Claude AI model family, API integrations, context window utilization, system prompts, and prompt design."
+    description: "Hands-on implementation of Anthropic's Claude AI model family, API integrations, context window utilization, system prompts, and prompt design.",
+    items: [
+      {
+        subTitle: "Claude 101 Statement of Accomplishment",
+        previewImage: "assets/certificates/previews/datacamp_claude101.svg",
+        documentUrl: "assets/certificates/Certificate Claude 101.pdf",
+        type: "pdf",
+        date: "October 30, 2026",
+        certId: "#50,439,826",
+        issuer: "Jonathan Cornelissen, CEO, DataCamp"
+      }
+    ]
   },
+
+  // 2. October 15, 2026 - Microsoft Learn: Azure Cloud Infrastructure & Fundamentals (15 Modules Grouped)
+  {
+    id: "microsoft-azure-fundamentals",
+    title: "Microsoft Learn: Azure Cloud Infrastructure & Fundamentals",
+    issuer: "Microsoft Learn",
+    date: "October 15, 2026",
+    isoDate: "2026-10-15",
+    category: "Cloud & DevOps",
+    description: "Comprehensive 15-credential Microsoft Azure cloud training series covering cloud concepts, core architectural components, compute, networking, storage, security, identity, cost management, governance, and monitoring.",
+    items: [
+      {
+        subTitle: "1. Describe Cloud Computing",
+        previewImage: "assets/certificates/Microsoft/Describe cloud computing.png",
+        documentUrl: "assets/certificates/Microsoft/Describe cloud computing.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "2. Describe Cloud Service Types (IaaS, PaaS, SaaS)",
+        previewImage: "assets/certificates/Microsoft/Describe cloud service types.png",
+        documentUrl: "assets/certificates/Microsoft/Describe cloud service types.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "3. Describe the Benefits of Using Cloud Services",
+        previewImage: "assets/certificates/Microsoft/Describe the benefits of using cloud services.png",
+        documentUrl: "assets/certificates/Microsoft/Describe the benefits of using cloud services.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "4. Describe Core Architectural Components of Azure",
+        previewImage: "assets/certificates/Microsoft/Describe the core architectural components of Azure.png",
+        documentUrl: "assets/certificates/Microsoft/Describe the core architectural components of Azure.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "5. Describe Azure Compute Services",
+        previewImage: "assets/certificates/Microsoft/Describe Azure compute services.png",
+        documentUrl: "assets/certificates/Microsoft/Describe Azure compute services.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "6. Describe Azure Networking Services",
+        previewImage: "assets/certificates/Microsoft/Describe Azure networking services.png",
+        documentUrl: "assets/certificates/Microsoft/Describe Azure networking services.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "7. Describe Azure Storage Services",
+        previewImage: "assets/certificates/Microsoft/Describe Azure storage services.png",
+        documentUrl: "assets/certificates/Microsoft/Describe Azure storage services.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "8. Describe Azure Identity, Access, and Security",
+        previewImage: "assets/certificates/Microsoft/Describe Azure identity, access, and security.png",
+        documentUrl: "assets/certificates/Microsoft/Describe Azure identity, access, and security.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "9. Describe Cost Management in Azure",
+        previewImage: "assets/certificates/Microsoft/Describe cost management in Azure.png",
+        documentUrl: "assets/certificates/Microsoft/Describe cost management in Azure.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "10. Describe Features & Tools for Managing & Deploying Azure Resources",
+        previewImage: "assets/certificates/Microsoft/Describe features and tools for managing and deploying Azure resources.png",
+        documentUrl: "assets/certificates/Microsoft/Describe features and tools for managing and deploying Azure resources.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "11. Describe Features and Tools in Azure for Governance and Compliance",
+        previewImage: "assets/certificates/Microsoft/Describe features and tools in Azure for governance and compliance.png",
+        documentUrl: "assets/certificates/Microsoft/Describe features and tools in Azure for governance and compliance.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "12. Describe Monitoring Tools in Azure",
+        previewImage: "assets/certificates/Microsoft/Describe monitoring tools in Azure.png",
+        documentUrl: "assets/certificates/Microsoft/Describe monitoring tools in Azure.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "13. Intro to Cloud Infrastructure: Describe Cloud Concepts",
+        previewImage: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe cloud concepts.png",
+        documentUrl: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe cloud concepts.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "14. Intro to Cloud Infrastructure: Describe Azure Architecture & Services",
+        previewImage: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe Azure architecture and services.png",
+        documentUrl: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe Azure architecture and services.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      },
+      {
+        subTitle: "15. Intro to Cloud Infrastructure: Describe Azure Management & Governance",
+        previewImage: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe Azure management and governance.png",
+        documentUrl: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe Azure management and governance.png",
+        type: "image",
+        date: "October 15, 2026",
+        issuer: "Microsoft Learn (Satya Nadella, CEO)"
+      }
+    ]
+  },
+
+  // 3. October 01, 2026 - AWS Training & Certification: Generative AI & Prompt Engineering (2 Parts Grouped)
+  {
+    id: "aws-generative-ai-prompt-engineering",
+    title: "AWS Training: Generative AI & Prompt Engineering",
+    issuer: "AWS Training and Certification",
+    date: "October 01, 2026",
+    isoDate: "2026-10-01",
+    category: "AI & Machine Learning",
+    description: "Official AWS Training credentials in generative AI architectures, foundational models, zero-shot/few-shot prompt optimization, and AI application engineering.",
+    items: [
+      {
+        subTitle: "Part 1: Essentials of Prompt Engineering",
+        previewImage: "assets/certificates/previews/aws_prompt_engineering.jpg",
+        documentUrl: "assets/certificates/AWS/Essentials of Prompt Engineering (AWS).pdf",
+        type: "pdf",
+        date: "October 01, 2026",
+        issuer: "AWS Training and Certification"
+      },
+      {
+        subTitle: "Part 2: Introduction to Generative AI - Art of the Possible",
+        previewImage: "assets/certificates/previews/aws_generative_ai.jpg",
+        documentUrl: "assets/certificates/AWS/Introduction to Generative AI (AWS).pdf",
+        type: "pdf",
+        date: "October 01, 2026",
+        issuer: "AWS Training and Certification"
+      }
+    ]
+  },
+
+  // 4. September 30, 2026 - Cisco & DICT: Introduction to Modern AI (2 Credentials Grouped)
+  {
+    id: "cisco-modern-ai",
+    title: "Cisco & DICT: Introduction to Modern AI",
+    issuer: "Cisco Networking Academy & DICT-ITU DTC Initiative",
+    date: "September 30, 2026",
+    isoDate: "2026-09-30",
+    category: "AI & Machine Learning",
+    description: "Foundational concepts of artificial intelligence, neural networks, machine learning algorithms, deep learning applications, and AI ethics with dual credentials from Cisco and DICT.",
+    items: [
+      {
+        subTitle: "Credential 1: Cisco Networking Academy Course Completion",
+        previewImage: "assets/certificates/previews/cisco_modern_ai.png",
+        documentUrl: "assets/certificates/CISCO/IntrotoModernAI.pdf",
+        type: "pdf",
+        date: "September 30, 2026",
+        issuer: "Lynn Bloomer, Director, Cisco Networking Academy"
+      },
+      {
+        subTitle: "Credential 2: Official DICT-ITU DTC Certificate of Completion",
+        previewImage: "assets/certificates/previews/cisco_dict_modern_ai.png",
+        documentUrl: "assets/certificates/CISCO/Introduction_to_Modern_AI_certificate.pdf",
+        type: "pdf",
+        date: "September 30, 2026",
+        certId: "a9e0ac48-06d7-431a-92a9-880e7001c521",
+        issuer: "DICT-ITU DTC Initiative & Cisco Networking Academy"
+      }
+    ]
+  },
+
+  // 5. September 28, 2026 - Cisco & DICT: Networking Basics (2 Credentials Grouped)
+  {
+    id: "cisco-networking-basics",
+    title: "Cisco & DICT: Networking Basics",
+    issuer: "Cisco Networking Academy & DICT-ITU DTC Initiative",
+    date: "September 28, 2026",
+    isoDate: "2026-09-28",
+    category: "IT Infrastructure",
+    description: "Fundamentals of computer networks, IPv4/IPv6 addressing, subnetting, routers, switches, network protocols, topologies, and troubleshooting.",
+    items: [
+      {
+        subTitle: "Credential 1: Cisco Networking Academy Course Completion",
+        previewImage: "assets/certificates/previews/cisco_networking.png",
+        documentUrl: "assets/certificates/CISCO/Networking Basics Cerificate.pdf",
+        type: "pdf",
+        date: "September 28, 2026",
+        issuer: "Lynn Bloomer, Director, Cisco Networking Academy"
+      },
+      {
+        subTitle: "Credential 2: Official DICT-ITU DTC Certificate of Completion",
+        previewImage: "assets/certificates/previews/cisco_dict_networking.png",
+        documentUrl: "assets/certificates/CISCO/Networking Basics certificate from DICT-ITU DTC.pdf",
+        type: "pdf",
+        date: "September 28, 2026",
+        certId: "7e3cddfc-fb8b-4296-be0c-794b4b6ee572",
+        issuer: "Darwin Avance, Instructor, DICT-ITU DTC Initiative"
+      }
+    ]
+  },
+
+  // 6. September 27, 2026 - Cisco & DICT: Operating Systems Basics (2 Credentials Grouped)
+  {
+    id: "cisco-os-basics",
+    title: "Cisco & DICT: Operating Systems Basics",
+    issuer: "Cisco Networking Academy & DICT-ITU DTC Initiative",
+    date: "September 27, 2026",
+    isoDate: "2026-09-27",
+    category: "IT Infrastructure",
+    description: "Comprehensive training in Windows and Linux operating systems, user administration, file systems, disk management, processes, and security configurations.",
+    items: [
+      {
+        subTitle: "Credential 1: Cisco Networking Academy Course Completion",
+        previewImage: "assets/certificates/previews/cisco_os.png",
+        documentUrl: "assets/certificates/CISCO/OperatingSystemsBasics Certificate.pdf",
+        type: "pdf",
+        date: "September 27, 2026",
+        issuer: "Lynn Bloomer, Director, Cisco Networking Academy"
+      },
+      {
+        subTitle: "Credential 2: Official DICT-ITU DTC Certificate of Completion",
+        previewImage: "assets/certificates/previews/cisco_dict_os.png",
+        documentUrl: "assets/certificates/CISCO/Operating Systems Basics certificate from DICT-ITU DTC.pdf",
+        type: "pdf",
+        date: "September 27, 2026",
+        certId: "316adb8d-a8dc-4803-884f-34c2d71d2f13",
+        issuer: "Darwin Avance, Instructor, DICT-ITU DTC Initiative"
+      }
+    ]
+  },
+
+  // 7. September 27, 2026 - TESDA Online Program: Introduction to Bookkeeping
+  {
+    id: "tesda-bookkeeping",
+    title: "Introduction to Bookkeeping",
+    issuer: "Technical Education and Skills Development Authority (TESDA)",
+    date: "September 27, 2026",
+    isoDate: "2026-09-27",
+    category: "Professional & Specialization",
+    description: "Financial record-keeping, journalizing business transactions, general ledgers, trial balance preparation, and financial statements under official TESDA standards.",
+    items: [
+      {
+        subTitle: "Certificate of Completion",
+        previewImage: "assets/certificates/previews/tesda_bookkeeping.png",
+        documentUrl: "assets/certificates/Certificate_of_Completion [Introduction to Bookkeeping].pdf",
+        type: "pdf",
+        date: "September 27, 2026",
+        certId: "y15rxy2Pcl",
+        issuer: "TESDA Online Program (e-TESDA)"
+      }
+    ]
+  },
+
+  // 8. September 26, 2026 - Cisco & DICT: Computer Hardware Basics (2 Credentials Grouped)
+  {
+    id: "cisco-hardware-basics",
+    title: "Cisco & DICT: Computer Hardware Basics",
+    issuer: "Cisco Networking Academy & DICT-ITU DTC Initiative",
+    date: "September 26, 2026",
+    isoDate: "2026-09-26",
+    category: "IT Infrastructure",
+    description: "Computer hardware assembly, personal computer components, laptop diagnostics, peripheral configuration, preventive maintenance, and laboratory safety standards.",
+    items: [
+      {
+        subTitle: "Credential 1: Cisco Networking Academy Course Completion",
+        previewImage: "assets/certificates/previews/cisco_hardware.png",
+        documentUrl: "assets/certificates/CISCO/ComputerHardwareBasics Certificate.pdf",
+        type: "pdf",
+        date: "September 26, 2026",
+        issuer: "Lynn Bloomer, Director, Cisco Networking Academy"
+      },
+      {
+        subTitle: "Credential 2: Official DICT-ITU DTC Certificate of Completion",
+        previewImage: "assets/certificates/previews/cisco_dict_hardware.png",
+        documentUrl: "assets/certificates/CISCO/Computer Hardware Basics certificate from DICT-ITU DTC.pdf",
+        type: "pdf",
+        date: "September 26, 2026",
+        certId: "3aba582d-3e22-4b7a-a1a2-63fb806c9926",
+        issuer: "Darwin Avance, Instructor, DICT-ITU DTC Initiative"
+      }
+    ]
+  },
+
+  // 9. August 23, 2026 (Test Date: Dec 10, 2025) - TOPCIT Level 3
   {
     id: "topcit-level3",
     title: "TOPCIT (Test of Practical Competency in ICT) - Level 3",
     issuer: "IITP (Institute for Information & Communications Technology Promotion)",
-    date: "December 10, 2025",
+    date: "August 23, 2026",
+    isoDate: "2026-08-23",
     category: "IT Infrastructure",
-    certId: "TL2506004034 (Official Score: 649 / 1,000)",
-    previewImage: "assets/certificates/previews/topcit_level3.svg",
-    documentUrl: "assets/certificates/TOPCIT_.pdf",
-    type: "pdf",
-    description: "International standardized ICT competency exam. Demonstrated high performance in Data Management (89.0%), System Architecture (86.7%), and Information Security (82.4%)."
-  },
-  {
-    id: "tesda-bookkeeping",
-    title: "Introduction to Bookkeeping",
-    issuer: "TESDA Online Program (e-TESDA)",
-    date: "September 27, 2026",
-    category: "Professional & Specialization",
-    previewImage: "assets/certificates/previews/tesda_bookkeeping.png",
-    documentUrl: "assets/certificates/Certificate_of_Completion [Introduction to Bookkeeping].pdf",
-    type: "pdf",
-    description: "Financial record-keeping, journal entries, ledgers, trial balances, and financial statement reconciliation under official TESDA standards."
-  },
-  {
-    id: "isite-digital-era",
-    title: "The Future of the Digital Era",
-    issuer: "Integrated Society of Information Technology Enthusiasts (iSITE) Inc.",
-    date: "June 09, 2025",
-    category: "Professional & Specialization",
-    previewImage: "assets/certificates/iSITE Webinar.png",
-    documentUrl: "assets/certificates/iSITE Webinar.png",
-    type: "image",
-    description: "Exploration of emerging digital paradigms, fourth industrial revolution technologies, cloud transformations, and technical career readiness."
+    description: "Standardized international ICT practical competency exam. Achieved high-percentile scores in Data Management (89.0%), System Architecture (86.7%), Information Security (82.4%), and Technical IT Business & Ethics.",
+    items: [
+      {
+        subTitle: "Official Competency Certificate (Score: 649 / 1,000 • Level 3)",
+        previewImage: "assets/certificates/previews/topcit_level3.svg",
+        documentUrl: "assets/certificates/TOPCIT_.pdf",
+        type: "pdf",
+        date: "August 23, 2026 (Test Date: Dec 10, 2025)",
+        certId: "TL2506004034",
+        issuer: "President of IITP (Institute for Information & Communications Technology Promotion)"
+      }
+    ]
   },
 
-  // --- PHILDEV, WELLS FARGO, ALIBABA CLOUD & SHE++ ---
-  {
-    id: "she-alibaba-masterclass",
-    title: "SHE++ Masterclass on Alibaba Cloud System",
-    issuer: "PhilDev, Wells Fargo & Alibaba Cloud Philippines",
-    date: "June 30, 2025",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/previews/alibaba_masterclass.jpg",
-    documentUrl: "assets/certificates/SHE++ and ALIBABA/Alibaba Masterclass Certificate.pdf",
-    type: "pdf",
-    description: "In-depth cloud infrastructure masterclass covering Alibaba Cloud Elastic Compute Service (ECS), Object Storage (OSS), VPC networking, and cloud system architecture."
-  },
-  {
-    id: "she-cybersecurity",
-    title: "AI-Powered Cybersecurity: Defending Systems with Machine Learning",
-    issuer: "PhilDev, Wells Fargo & Limitless Lab",
-    date: "March 19, 2025",
-    category: "AI & Machine Learning",
-    previewImage: "assets/certificates/previews/she_cybersecurity.jpg",
-    documentUrl: "assets/certificates/SHE++ and ALIBABA/-WEBINAR 2- Cert of Attendance.pdf",
-    type: "pdf",
-    description: "Machine learning applications in threat intelligence, real-time intrusion detection, automated vulnerability mitigation, and cyber-resilience."
-  },
+  // 10. July 18, 2025 - PhilDev & Alibaba: Feel the Vibes: Unleash the Power of Vibe Coding
   {
     id: "she-vibe-coding",
     title: "Feel the Vibes: Unleash the Power of Vibe Coding",
     issuer: "PhilDev, Wells Fargo & Alibaba Cloud Academy",
     date: "July 18, 2025",
+    isoDate: "2025-07-18",
     category: "AI & Machine Learning",
-    previewImage: "assets/certificates/previews/she_vibe_coding.jpg",
-    documentUrl: "assets/certificates/SHE++ and ALIBABA/Certificate of Participation.pdf",
-    type: "pdf",
-    description: "Modern AI-assisted software engineering workflows, generative coding tools, automated scaffolding, and human-in-the-loop developer velocity."
+    description: "Modern AI-assisted software engineering workflows, generative coding tools, automated scaffolding, and human-in-the-loop developer velocity.",
+    items: [
+      {
+        subTitle: "Certificate of Participation",
+        previewImage: "assets/certificates/previews/she_vibe_coding.jpg",
+        documentUrl: "assets/certificates/SHE++ and ALIBABA/Certificate of Participation.pdf",
+        type: "pdf",
+        date: "July 18, 2025",
+        issuer: "Frederick Blancas, Executive Director, PhilDev & Samantha Chico, Program Manager"
+      }
+    ]
   },
+
+  // 11. June 30, 2025 - PhilDev & Alibaba: SHE++ Masterclass on Alibaba Cloud System
+  {
+    id: "she-alibaba-masterclass",
+    title: "SHE++ Masterclass on Alibaba Cloud System",
+    issuer: "PhilDev, Wells Fargo & Alibaba Cloud Philippines",
+    date: "June 30, 2025",
+    isoDate: "2025-06-30",
+    category: "Cloud & DevOps",
+    description: "In-depth cloud infrastructure masterclass covering Alibaba Cloud Elastic Compute Service (ECS), Object Storage (OSS), VPC networking, and cloud system architecture held at PLP.",
+    items: [
+      {
+        subTitle: "Certificate of Completion",
+        previewImage: "assets/certificates/previews/alibaba_masterclass.jpg",
+        documentUrl: "assets/certificates/SHE++ and ALIBABA/Alibaba Masterclass Certificate.pdf",
+        type: "pdf",
+        date: "June 30, 2025",
+        issuer: "Eric Tomacruz (PhilDev) & Allen Guo (Country Manager, Alibaba Cloud Philippines)"
+      }
+    ]
+  },
+
+  // 12. June 09, 2025 - iSITE: The Future of the Digital Era
+  {
+    id: "isite-digital-era",
+    title: "The Future of the Digital Era",
+    issuer: "Integrated Society of Information Technology Enthusiasts (iSITE) Inc.",
+    date: "June 09, 2025",
+    isoDate: "2025-06-09",
+    category: "Professional & Specialization",
+    description: "Comprehensive webinar on modern digital transformations, emerging computing technologies, cloud evolution, and preparation for future technology careers.",
+    items: [
+      {
+        subTitle: "Certificate of Participation",
+        previewImage: "assets/certificates/iSITE Webinar.png",
+        documentUrl: "assets/certificates/iSITE Webinar.png",
+        type: "image",
+        date: "June 09, 2025",
+        issuer: "Dr. Neil P. Balba, iSITE President"
+      }
+    ]
+  },
+
+  // 13. June 02 - 04, 2025 - SHE++ Technopreneurship & Leadership Workshop Series (3-Part Series Grouped)
+  {
+    id: "she-workshop-series",
+    title: "SHE++ Technopreneurship & Leadership Workshop Series",
+    issuer: "PhilDev, Wells Fargo & Limitless Lab",
+    date: "June 04, 2025",
+    isoDate: "2025-06-04",
+    category: "Professional & Specialization",
+    description: "Intensive 3-part professional workshop series covering entrepreneurial leadership, human-centered design thinking, strategic foresight, and technical product modeling.",
+    items: [
+      {
+        subTitle: "Session 1: Leadership and Technopreneurial Mindset",
+        previewImage: "assets/certificates/previews/she_session1.jpg",
+        documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 1] Certificate of Completion (1).pdf",
+        type: "pdf",
+        date: "June 02, 2025",
+        issuer: "Eric Tomacruz (PhilDev) & Guita Gopalan (CEO, Agyle Brands)"
+      },
+      {
+        subTitle: "Session 2: Design Thinking",
+        previewImage: "assets/certificates/previews/she_session2.jpg",
+        documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 2] Certificate of Completion.pdf",
+        type: "pdf",
+        date: "June 03, 2025",
+        issuer: "Eric Tomacruz (PhilDev) & Joie Cruz (CEO, Limitless Lab)"
+      },
+      {
+        subTitle: "Session 3: Strategic Foresight and Intro to Technopreneurship",
+        previewImage: "assets/certificates/previews/she_session3.jpg",
+        documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 3] Certificate of Completion.pdf",
+        type: "pdf",
+        date: "June 04, 2025",
+        issuer: "Eric Tomacruz (PhilDev) & Joie Cruz (CEO, Limitless Lab)"
+      }
+    ]
+  },
+
+  // 14. May 21, 2025 - PhilDev & Wells Fargo: Project Management for Tech Professionals
   {
     id: "she-project-management",
     title: "Project Management for Tech Professionals",
     issuer: "PhilDev, Wells Fargo & Limitless Lab",
     date: "May 21, 2025",
+    isoDate: "2025-05-21",
     category: "Professional & Specialization",
-    previewImage: "assets/certificates/previews/she_project_management.jpg",
-    documentUrl: "assets/certificates/SHE++ and ALIBABA/Certificate of Participation (1).pdf",
-    type: "pdf",
-    description: "Agile methodologies, sprint planning, backlog grooming, risk management, and stakeholder alignment for engineering teams."
-  },
-  {
-    id: "she-session-1",
-    title: "SHE++ Workshop: Leadership & Technopreneurial Mindset",
-    issuer: "PhilDev, Wells Fargo & Agyle Brands",
-    date: "June 02, 2025",
-    category: "Professional & Specialization",
-    previewImage: "assets/certificates/previews/she_session1.jpg",
-    documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 1] Certificate of Completion (1).pdf",
-    type: "pdf",
-    description: "Cultivating leadership presence, entrepreneurial initiative, technological problem solving, and growth mindsets in technical environments."
-  },
-  {
-    id: "she-session-2",
-    title: "SHE++ Workshop: Design Thinking",
-    issuer: "PhilDev, Wells Fargo & Limitless Lab",
-    date: "June 03, 2025",
-    category: "Professional & Specialization",
-    previewImage: "assets/certificates/previews/she_session2.jpg",
-    documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 2] Certificate of Completion.pdf",
-    type: "pdf",
-    description: "User-centered design methodologies, empathy mapping, rapid prototyping, problem reframing, and iterative user testing."
-  },
-  {
-    id: "she-session-3",
-    title: "SHE++ Workshop: Strategic Foresight & Intro to Technopreneurship",
-    issuer: "PhilDev, Wells Fargo & Limitless Lab",
-    date: "June 04, 2025",
-    category: "Professional & Specialization",
-    previewImage: "assets/certificates/previews/she_session3.jpg",
-    documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 3] Certificate of Completion.pdf",
-    type: "pdf",
-    description: "Horizon scanning, technological forecasting, tech venture business modeling, value proposition design, and market validation."
+    description: "Agile methodologies, sprint planning, product backlogs, risk assessment, cross-functional engineering leadership, and deliverable tracking.",
+    items: [
+      {
+        subTitle: "Certificate of Participation",
+        previewImage: "assets/certificates/previews/she_project_management.jpg",
+        documentUrl: "assets/certificates/SHE++ and ALIBABA/Certificate of Participation (1).pdf",
+        type: "pdf",
+        date: "May 21, 2025",
+        issuer: "Eric Tomacruz, Vice Chairman, PhilDev & Samantha Chico, Program Manager"
+      }
+    ]
   },
 
-  // --- MICROSOFT AZURE & CLOUD CREDENTIALS ---
+  // 15. March 19, 2025 - PhilDev & Wells Fargo: AI-Powered Cybersecurity
   {
-    id: "ms-cloud-computing",
-    title: "Describe Cloud Computing",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe cloud computing.png",
-    documentUrl: "assets/certificates/Microsoft/Describe cloud computing.png",
-    type: "image",
-    description: "Core cloud computing concepts, shared responsibility model, cloud deployment models (public, private, hybrid), and economic benefits."
-  },
-  {
-    id: "ms-cloud-service-types",
-    title: "Describe Cloud Service Types",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe cloud service types.png",
-    documentUrl: "assets/certificates/Microsoft/Describe cloud service types.png",
-    type: "image",
-    description: "Architectural comparison of Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS)."
-  },
-  {
-    id: "ms-cloud-benefits",
-    title: "Describe the Benefits of Using Cloud Services",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe the benefits of using cloud services.png",
-    documentUrl: "assets/certificates/Microsoft/Describe the benefits of using cloud services.png",
-    type: "image",
-    description: "High availability, scalability, elasticity, agility, fault tolerance, disaster recovery, and global reach in cloud architectures."
-  },
-  {
-    id: "ms-azure-core-arch",
-    title: "Describe the Core Architectural Components of Azure",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe the core architectural components of Azure.png",
-    documentUrl: "assets/certificates/Microsoft/Describe the core architectural components of Azure.png",
-    type: "image",
-    description: "Azure regions, region pairs, availability zones, datacenter topologies, resource groups, subscriptions, and management groups."
-  },
-  {
-    id: "ms-azure-compute",
-    title: "Describe Azure Compute Services",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe Azure compute services.png",
-    documentUrl: "assets/certificates/Microsoft/Describe Azure compute services.png",
-    type: "image",
-    description: "Azure Virtual Machines (VMs), Virtual Machine Scale Sets, Azure App Service, Azure Container Instances (ACI), Azure Kubernetes Service (AKS), and Azure Functions."
-  },
-  {
-    id: "ms-azure-networking",
-    title: "Describe Azure Networking Services",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe Azure networking services.png",
-    documentUrl: "assets/certificates/Microsoft/Describe Azure networking services.png",
-    type: "image",
-    description: "Azure Virtual Network (VNet), subnets, Network Security Groups (NSGs), Azure DNS, Azure VPN Gateway, and Azure ExpressRoute."
-  },
-  {
-    id: "ms-azure-storage",
-    title: "Describe Azure Storage Services",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe Azure storage services.png",
-    documentUrl: "assets/certificates/Microsoft/Describe Azure storage services.png",
-    type: "image",
-    description: "Azure Blob storage, Azure Files, Azure Queue storage, Azure Table storage, access tiers (Hot, Cool, Cold, Archive), and storage redundancy."
-  },
-  {
-    id: "ms-azure-identity",
-    title: "Describe Azure Identity, Access, and Security",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe Azure identity, access, and security.png",
-    documentUrl: "assets/certificates/Microsoft/Describe Azure identity, access, and security.png",
-    type: "image",
-    description: "Microsoft Entra ID (formerly Azure AD), authentication vs authorization, Multi-Factor Authentication (MFA), Role-Based Access Control (RBAC), and Zero Trust."
-  },
-  {
-    id: "ms-cost-management",
-    title: "Describe Cost Management in Azure",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe cost management in Azure.png",
-    documentUrl: "assets/certificates/Microsoft/Describe cost management in Azure.png",
-    type: "image",
-    description: "Total Cost of Ownership (TCO) calculator, Azure Pricing Calculator, Microsoft Cost Management, budgets, cost alerts, and resource tagging."
-  },
-  {
-    id: "ms-features-tools-deploy",
-    title: "Describe Features and Tools for Managing and Deploying Azure Resources",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe features and tools for managing and deploying Azure resources.png",
-    documentUrl: "assets/certificates/Microsoft/Describe features and tools for managing and deploying Azure resources.png",
-    type: "image",
-    description: "Azure Portal, Azure PowerShell, Azure CLI, Azure Cloud Shell, Azure Resource Manager (ARM) templates, and Bicep infrastructure as code."
-  },
-  {
-    id: "ms-features-governance",
-    title: "Describe Features and Tools in Azure for Governance and Compliance",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe features and tools in Azure for governance and compliance.png",
-    documentUrl: "assets/certificates/Microsoft/Describe features and tools in Azure for governance and compliance.png",
-    type: "image",
-    description: "Azure Policy, Azure Blueprints, resource locks, service trust portal, regulatory compliance standards, and cloud governance frameworks."
-  },
-  {
-    id: "ms-monitoring-tools",
-    title: "Describe Monitoring Tools in Azure",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Describe monitoring tools in Azure.png",
-    documentUrl: "assets/certificates/Microsoft/Describe monitoring tools in Azure.png",
-    type: "image",
-    description: "Azure Monitor, Azure Service Health, Log Analytics workspaces, Application Insights, diagnostic logs, and automated metric alerts."
-  },
-  {
-    id: "ms-infra-cloud-concepts",
-    title: "Introduction to Cloud Infrastructure: Describe Cloud Concepts",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe cloud concepts.png",
-    documentUrl: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe cloud concepts.png",
-    type: "image",
-    description: "Comprehensive foundational evaluation of cloud economics, CapEx vs OpEx, multi-tenant cloud models, and service availability."
-  },
-  {
-    id: "ms-infra-arch-services",
-    title: "Introduction to Cloud Infrastructure: Describe Azure Architecture and Services",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe Azure architecture and services.png",
-    documentUrl: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe Azure architecture and services.png",
-    type: "image",
-    description: "Synthesized architecture review of Azure compute, networking, storage, databases, and enterprise identity systems."
-  },
-  {
-    id: "ms-infra-management-gov",
-    title: "Introduction to Cloud Infrastructure: Describe Azure Management and Governance",
-    issuer: "Microsoft Learn",
-    date: "October 15, 2026",
-    category: "Cloud & DevOps",
-    previewImage: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe Azure management and governance.png",
-    documentUrl: "assets/certificates/Microsoft/Introduction to Cloud Infrastructure Describe Azure management and governance.png",
-    type: "image",
-    description: "Cloud adoption framework, cost optimization strategies, security baseline policies, and enterprise governance enforcement."
+    id: "she-cybersecurity",
+    title: "AI-Powered Cybersecurity: Defending Systems with Machine Learning",
+    issuer: "PhilDev, Wells Fargo & Limitless Lab",
+    date: "March 19, 2025",
+    isoDate: "2025-03-19",
+    category: "AI & Machine Learning",
+    description: "Application of machine learning algorithms in modern cybersecurity, automated threat identification, anomaly detection, and enterprise vulnerability management.",
+    items: [
+      {
+        subTitle: "Certificate of Attendance",
+        previewImage: "assets/certificates/previews/she_cybersecurity.jpg",
+        documentUrl: "assets/certificates/SHE++ and ALIBABA/-WEBINAR 2- Cert of Attendance.pdf",
+        type: "pdf",
+        date: "March 19, 2025",
+        issuer: "Eric Tomacruz, Vice Chairman, PhilDev & Samantha Chico, Program Manager"
+      }
+    ]
   }
 ];

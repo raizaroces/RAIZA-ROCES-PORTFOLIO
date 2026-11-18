@@ -118,7 +118,7 @@ export default function Hero({ onOpenResume }) {
               <Award size={24} />
             </div>
             <div className="highlight-info">
-              <span className="highlight-number">32</span>
+              <span className="highlight-number">36</span>
               <span className="highlight-label">Verified Certifications &amp; Credentials</span>
             </div>
           </div>

@@ -1,26 +1,36 @@
 import React, { useState, useMemo } from 'react';
-import { Eye, Download, Award, Briefcase, GraduationCap, Search, ExternalLink, ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
+import { Eye, Download, Award, Briefcase, GraduationCap, Search } from 'lucide-react';
 import { educationData, experienceData } from '../data/resumeData';
 import { certificatesData } from '../data/certificatesData';
+import CertificateCard from './CertificateCard';
 import CertificateModal from './CertificateModal';
 
 export default function Resume({ onOpenResume }) {
   const [activeTab, setActiveTab] = useState('certs');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCertificate, setActiveCertificate] = useState(null);
+  const [activeModalData, setActiveModalData] = useState(null);
 
   const categories = ['All', 'Cloud & DevOps', 'AI & Machine Learning', 'IT Infrastructure', 'Professional & Specialization'];
 
+  // Total count of verified credentials across all groups
+  const totalCredentialCount = useMemo(() => {
+    return certificatesData.reduce((acc, c) => acc + (c.items ? c.items.length : 1), 0);
+  }, []);
+
   const filteredCertificates = useMemo(() => {
-    return certificatesData.filter((cert) => {
-      const matchesCategory = selectedCategory === 'All' || cert.category === selectedCategory;
+    return certificatesData.filter((card) => {
+      const matchesCategory = selectedCategory === 'All' || card.category === selectedCategory;
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !q ||
-        cert.title.toLowerCase().includes(q) ||
-        cert.issuer.toLowerCase().includes(q) ||
-        (cert.certId && cert.certId.toLowerCase().includes(q));
+        card.title.toLowerCase().includes(q) ||
+        card.issuer.toLowerCase().includes(q) ||
+        card.items.some(
+          (it) =>
+            (it.subTitle && it.subTitle.toLowerCase().includes(q)) ||
+            (it.certId && it.certId.toLowerCase().includes(q))
+        );
       return matchesCategory && matchesSearch;
     });
   }, [selectedCategory, searchQuery]);
@@ -35,7 +45,7 @@ export default function Resume({ onOpenResume }) {
             Resume &amp; <span className="gradient-text">Credentials</span>
           </h2>
           <p className="section-subtitle">
-            Inspect my authentic resume document and verified credentials directly from the portfolio or download clean copies for your records.
+            Browse my verified credentials arranged chronologically from newest to oldest. Multi-part workshops and modular courses are organized with interactive navigation.
           </p>
         </div>
 
@@ -78,7 +88,7 @@ export default function Resume({ onOpenResume }) {
             onClick={() => setActiveTab('certs')}
           >
             <Award size={18} />
-            <span>Certificates &amp; Credentials ({certificatesData.length})</span>
+            <span>Certificates &amp; Credentials ({totalCredentialCount})</span>
           </button>
 
           <button
@@ -129,7 +139,7 @@ export default function Resume({ onOpenResume }) {
                 <Search size={16} className="search-icon" />
                 <input
                   type="text"
-                  placeholder="Search certificates, skills, or issuers..."
+                  placeholder="Search by title, session, or issuer..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="cert-search-input"
@@ -148,92 +158,17 @@ export default function Resume({ onOpenResume }) {
               </div>
             </div>
 
-            {/* Gallery Grid */}
+            {/* Gallery Grid of Organized & Grouped Certificates */}
             {filteredCertificates.length > 0 ? (
               <div className="cert-gallery-grid">
-                {filteredCertificates.map((cert) => (
-                  <article key={cert.id} className="cert-gallery-card">
-                    
-                    {/* Visual Preview */}
-                    <div
-                      className="cert-card-preview-wrapper"
-                      onClick={() => setActiveCertificate(cert)}
-                    >
-                      <img
-                        src={cert.previewImage}
-                        alt={cert.title}
-                        className="cert-card-image"
-                        loading="lazy"
-                      />
-                      <div className="cert-card-overlay">
-                        <span className="btn-view-preview">
-                          <Eye size={18} />
-                          <span>View Certificate</span>
-                        </span>
-                      </div>
-                      <span className="cert-type-pill">
-                        {cert.type === 'pdf' ? (
-                          <>
-                            <FileText size={12} />
-                            <span>PDF Document</span>
-                          </>
-                        ) : (
-                          <>
-                            <CheckCircle2 size={12} />
-                            <span>Verified Badge</span>
-                          </>
-                        )}
-                      </span>
-                    </div>
-
-                    {/* Card Content */}
-                    <div className="cert-card-body">
-                      <div className="cert-card-meta">
-                        <span className="cert-badge-category">{cert.category}</span>
-                        <span className="cert-badge-date">{cert.date}</span>
-                      </div>
-
-                      <h4 className="cert-card-title" title={cert.title}>
-                        {cert.title}
-                      </h4>
-
-                      <p className="cert-card-issuer">
-                        <Award size={14} className="cert-issuer-icon" />
-                        <span>{cert.issuer}</span>
-                      </p>
-
-                      {cert.certId && (
-                        <div className="cert-card-id" title={`Credential ID: ${cert.certId}`}>
-                          <ShieldCheck size={13} />
-                          <span>{cert.certId}</span>
-                        </div>
-                      )}
-
-                      {/* Card Action Buttons */}
-                      <div className="cert-card-actions">
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-sm btn-view-cert"
-                          onClick={() => setActiveCertificate(cert)}
-                        >
-                          <Eye size={15} />
-                          <span>View Certificate</span>
-                        </button>
-
-                        <a
-                          href={cert.documentUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-secondary btn-sm btn-icon-only"
-                          title="Open original certificate file"
-                          aria-label={`Open ${cert.title} file in new tab`}
-                        >
-                          <ExternalLink size={15} />
-                        </a>
-                      </div>
-                    </div>
-
-                  </article>
+                {filteredCertificates.map((card) => (
+                  <CertificateCard
+                    key={card.id}
+                    card={card}
+                    onViewCertificate={(selectedCard, idx) =>
+                      setActiveModalData({ card: selectedCard, initialIndex: idx })
+                    }
+                  />
                 ))}
               </div>
             ) : (
@@ -313,9 +248,10 @@ export default function Resume({ onOpenResume }) {
 
       {/* Certificate Viewer Modal */}
       <CertificateModal
-        certificate={activeCertificate}
-        isOpen={Boolean(activeCertificate)}
-        onClose={() => setActiveCertificate(null)}
+        card={activeModalData?.card}
+        initialIndex={activeModalData?.initialIndex || 0}
+        isOpen={Boolean(activeModalData)}
+        onClose={() => setActiveModalData(null)}
       />
     </section>
   );

@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { X, ExternalLink, Download, Award, ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
+import { X, ExternalLink, Download, Award, ShieldCheck, FileText, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function CertificateModal({ certificate, isOpen, onClose }) {
+export default function CertificateModal({ card, initialIndex = 0, isOpen, onClose }) {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [viewMode, setViewMode] = useState('preview'); // 'preview' or 'pdf'
 
   useEffect(() => {
-    if (certificate) {
-      setViewMode('preview');
-    }
-  }, [certificate]);
+    setActiveIndex(initialIndex || 0);
+    setViewMode('preview');
+  }, [card, initialIndex]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
+      if (!card || !card.items || card.items.length <= 1) return;
+      if (e.key === 'ArrowLeft') {
+        setActiveIndex((prev) => (prev === 0 ? card.items.length - 1 : prev - 1));
+      } else if (e.key === 'ArrowRight') {
+        setActiveIndex((prev) => (prev === card.items.length - 1 ? 0 : prev + 1));
+      }
     };
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -24,33 +30,55 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, card]);
 
-  if (!isOpen || !certificate) return null;
+  if (!isOpen || !card) return null;
 
-  const isPdf = certificate.type === 'pdf';
+  const items = card.items || [];
+  const currentItem = items[activeIndex] || items[0] || {};
+  const isPdf = currentItem.type === 'pdf';
+  const hasMultiple = items.length > 1;
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+  };
 
   return (
-    <div className={`modal-overlay active cert-modal-overlay`} onClick={onClose} role="dialog" aria-modal="true">
+    <div className="modal-overlay active cert-modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="cert-modal-dialog" onClick={(e) => e.stopPropagation()}>
         
-        {/* Header */}
+        {/* Modal Header */}
         <div className="cert-modal-header">
           <div className="cert-modal-title-box">
             <div className="cert-modal-badge-row">
-              <span className="cert-category-badge">{certificate.category}</span>
-              <span className="cert-date-badge">{certificate.date}</span>
-              {certificate.certId && (
+              <span className="cert-category-badge">{card.category}</span>
+              <span className="cert-date-badge">{currentItem.date || card.date}</span>
+              {hasMultiple && (
+                <span className="cert-counter-pill">
+                  Part {activeIndex + 1} of {items.length}
+                </span>
+              )}
+              {currentItem.certId && (
                 <span className="cert-id-badge">
                   <ShieldCheck size={14} />
-                  <span>ID: {certificate.certId}</span>
+                  <span>ID: {currentItem.certId}</span>
                 </span>
               )}
             </div>
-            <h3 className="cert-modal-title">{certificate.title}</h3>
+
+            <h3 className="cert-modal-title">{card.title}</h3>
+
+            {hasMultiple && currentItem.subTitle && (
+              <p className="cert-modal-session-subtitle">{currentItem.subTitle}</p>
+            )}
+
             <p className="cert-modal-issuer">
               <Award size={15} />
-              <span>Issued by <strong>{certificate.issuer}</strong></span>
+              <span>Issued by <strong>{currentItem.issuer || card.issuer}</strong></span>
             </p>
           </div>
 
@@ -76,7 +104,7 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
             )}
 
             <a
-              href={certificate.documentUrl}
+              href={currentItem.documentUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary btn-sm"
@@ -87,7 +115,7 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
             </a>
 
             <a
-              href={certificate.documentUrl}
+              href={currentItem.documentUrl}
               download
               className="btn btn-primary btn-sm"
               title="Download original certificate"
@@ -107,25 +135,49 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
           </div>
         </div>
 
-        {/* Modal Body */}
+        {/* Modal Body with Image/PDF & Next/Prev Navigation */}
         <div className="cert-modal-body">
+          {hasMultiple && (
+            <button
+              type="button"
+              className="cert-modal-nav-btn cert-modal-prev-btn"
+              onClick={handlePrev}
+              aria-label="Previous certificate item"
+              title="Previous item"
+            >
+              <ChevronLeft size={24} />
+            </button>
+          )}
+
           {isPdf && viewMode === 'pdf' ? (
             <div className="cert-iframe-container">
               <iframe
-                src={`${certificate.documentUrl}#toolbar=1&navpanes=0`}
-                title={certificate.title}
+                src={`${currentItem.documentUrl}#toolbar=1&navpanes=0`}
+                title={currentItem.subTitle || card.title}
                 className="cert-modal-iframe"
               />
             </div>
           ) : (
             <div className="cert-modal-image-wrapper">
               <img
-                src={certificate.previewImage}
-                alt={certificate.title}
+                src={currentItem.previewImage}
+                alt={`${card.title} - ${currentItem.subTitle || ''}`}
                 className="cert-modal-image"
-                loading="lazy"
+                loading="eager"
               />
             </div>
+          )}
+
+          {hasMultiple && (
+            <button
+              type="button"
+              className="cert-modal-nav-btn cert-modal-next-btn"
+              onClick={handleNext}
+              aria-label="Next certificate item"
+              title="Next item"
+            >
+              <ChevronRight size={24} />
+            </button>
           )}
         </div>
 
@@ -134,23 +186,26 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
           <div className="cert-modal-desc-box">
             <p className="cert-modal-desc">
               <CheckCircle2 size={16} style={{ color: 'var(--success)', flexShrink: 0, marginTop: '2px' }} />
-              <span>{certificate.description}</span>
+              <span>{card.description}</span>
             </p>
           </div>
 
-          {certificate.additionalDocUrl && (
-            <div className="cert-additional-docs">
-              <span className="additional-docs-label">Companion Credential:</span>
-              <a
-                href={certificate.additionalDocUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-text-link"
-              >
-                <FileText size={14} />
-                <span>View Official DICT-ITU DTC Certificate</span>
-                <ExternalLink size={12} />
-              </a>
+          {hasMultiple && (
+            <div className="cert-modal-session-selector">
+              <span className="session-selector-label">Navigate Parts:</span>
+              <div className="session-selector-pills">
+                {items.map((it, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`session-pill-btn ${activeIndex === idx ? 'active' : ''}`}
+                    onClick={() => setActiveIndex(idx)}
+                    title={it.subTitle}
+                  >
+                    {idx + 1}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
         </div>
