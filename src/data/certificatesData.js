@@ -340,7 +340,7 @@ export const certificatesData = [
       {
         subTitle: "Verified Competency Credential (Level 3 Practitioner)",
         previewImage: "assets/certificates/previews/topcit_level3.png",
-        documentUrl: "assets/certificates/TOPCIT_Level3_Certification.pdf",
+        documentUrl: "assets/certificates/TOPCIT_.pdf",
         type: "pdf",
         date: "August 23, 2026 (Test Date: Dec 10, 2025)",
         certId: "TL2506004034",
