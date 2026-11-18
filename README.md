@@ -1,4 +1,4 @@
-# Raiza A. Roces - Professional Personal Portfolio Website
+# Raiza A. Roces - Personal Portfolio Website
 
 ![Raiza A. Roces Portfolio Preview](assets/images/profile/MY_PIC.png)
 
