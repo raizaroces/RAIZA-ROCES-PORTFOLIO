@@ -10,7 +10,7 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const sections = ['home', 'projects', 'skills', 'resume', 'contact'];
+      const sections = ['home', 'projects', 'skills', 'credentials', 'contact'];
       const scrollPos = window.scrollY + 140;
 
       for (const sectionId of sections) {
@@ -34,7 +34,7 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
     { id: 'home', label: 'Home' },
     { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' },
-    { id: 'resume', label: 'Resume' },
+    { id: 'credentials', label: 'Credentials' },
     { id: 'contact', label: 'Contact' }
   ];
 

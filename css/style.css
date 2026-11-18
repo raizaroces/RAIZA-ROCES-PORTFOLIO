@@ -1669,6 +1669,22 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
 }
 
+.cert-verified-pill {
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+[data-theme='light'] .cert-verified-pill {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #059669;
+}
+
+.cert-verified-icon {
+  color: #10b981;
+}
+
 .cert-multi-badge {
   position: absolute;
   top: 12px;

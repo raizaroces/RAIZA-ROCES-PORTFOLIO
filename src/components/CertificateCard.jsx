@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, ExternalLink, ChevronLeft, ChevronRight, Award, ShieldCheck, FileText, CheckCircle2, Layers } from 'lucide-react';
+import { Eye, ExternalLink, ChevronLeft, ChevronRight, Award, ShieldCheck, CheckCircle2, Layers } from 'lucide-react';
 
 export default function CertificateCard({ card, onViewCertificate }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,19 +41,10 @@ export default function CertificateCard({ card, onViewCertificate }) {
           </span>
         </div>
 
-        {/* Document Type Badge */}
-        <span className="cert-type-pill">
-          {currentItem.type === 'pdf' ? (
-            <>
-              <FileText size={12} />
-              <span>PDF Document</span>
-            </>
-          ) : (
-            <>
-              <CheckCircle2 size={12} />
-              <span>Verified Image</span>
-            </>
-          )}
+        {/* Verified Badge */}
+        <span className="cert-type-pill cert-verified-pill">
+          <CheckCircle2 size={13} className="cert-verified-icon" />
+          <span>Verified</span>
         </span>
 
         {/* Group Multi-Item Counter Badge */}

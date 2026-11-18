@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Eye, Download, Award, Briefcase, GraduationCap, Search } from 'lucide-react';
+import { Award, Briefcase, GraduationCap, Search } from 'lucide-react';
 import { educationData, experienceData } from '../data/resumeData';
 import { certificatesData } from '../data/certificatesData';
 import CertificateCard from './CertificateCard';
@@ -36,48 +36,19 @@ export default function Resume({ onOpenResume }) {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <section className="section resume-section-wrapper" id="resume">
+    <section className="section resume-section-wrapper" id="credentials">
+      {/* Anchor for backwards compatibility */}
+      <span id="resume" style={{ position: 'absolute', top: '-80px', visibility: 'hidden' }}></span>
       <div className="container">
         
         <div className="section-header">
           <span className="section-badge">Credentials &amp; Verification</span>
           <h2 className="section-title">
-            Resume &amp; <span className="gradient-text">Credentials</span>
+            <span className="gradient-text">Credentials</span>
           </h2>
           <p className="section-subtitle">
             Browse my verified credentials arranged chronologically from newest to oldest. Multi-part workshops and modular courses are organized with interactive navigation.
           </p>
-        </div>
-
-        {/* Primary Action Banner */}
-        <div className="resume-cta-banner">
-          <div className="resume-banner-text">
-            <h3 className="resume-banner-title">Authentic Resume Document</h3>
-            <p className="resume-banner-desc">
-              Directly view or download my official curriculum vitae in PDF format. Preserves original formatting, academic standing, verified contact details, and complete project scopes.
-            </p>
-          </div>
-
-          <div className="resume-banner-actions">
-            <button
-              type="button"
-              className="btn btn-primary btn-resume-view"
-              id="resume-section-view-btn"
-              onClick={onOpenResume}
-            >
-              <Eye size={20} />
-              <span>VIEW MY RESUME</span>
-            </button>
-
-            <a
-              href="assets/docs/Roces,%20Raiza%20A.%20-%20Resume.pdf"
-              download="Raiza_A_Roces_Resume.pdf"
-              className="btn btn-secondary"
-            >
-              <Download size={18} />
-              <span>Download Resume (PDF)</span>
-            </a>
-          </div>
         </div>
 
         {/* Interactive Tabs */}

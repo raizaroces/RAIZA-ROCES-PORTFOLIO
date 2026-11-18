@@ -13,7 +13,7 @@ export const certificatesData = [
     items: [
       {
         subTitle: "Claude 101 Statement of Accomplishment",
-        previewImage: "assets/certificates/previews/datacamp_claude101.svg",
+        previewImage: "assets/certificates/previews/datacamp_claude101.png",
         documentUrl: "assets/certificates/Certificate Claude 101.pdf",
         type: "pdf",
         date: "October 30, 2026",
@@ -168,7 +168,7 @@ export const certificatesData = [
     items: [
       {
         subTitle: "Part 1: Essentials of Prompt Engineering",
-        previewImage: "assets/certificates/previews/aws_prompt_engineering.jpg",
+        previewImage: "assets/certificates/previews/aws_prompt_engineering.png",
         documentUrl: "assets/certificates/AWS/Essentials of Prompt Engineering (AWS).pdf",
         type: "pdf",
         date: "October 01, 2026",
@@ -176,7 +176,7 @@ export const certificatesData = [
       },
       {
         subTitle: "Part 2: Introduction to Generative AI - Art of the Possible",
-        previewImage: "assets/certificates/previews/aws_generative_ai.jpg",
+        previewImage: "assets/certificates/previews/aws_generative_ai.png",
         documentUrl: "assets/certificates/AWS/Introduction to Generative AI (AWS).pdf",
         type: "pdf",
         date: "October 01, 2026",
@@ -339,7 +339,7 @@ export const certificatesData = [
     items: [
       {
         subTitle: "Official Competency Certificate (Score: 649 / 1,000 • Level 3)",
-        previewImage: "assets/certificates/previews/topcit_level3.svg",
+        previewImage: "assets/certificates/previews/topcit_level3.png",
         documentUrl: "assets/certificates/TOPCIT_.pdf",
         type: "pdf",
         date: "August 23, 2026 (Test Date: Dec 10, 2025)",
@@ -361,7 +361,7 @@ export const certificatesData = [
     items: [
       {
         subTitle: "Certificate of Participation",
-        previewImage: "assets/certificates/previews/she_vibe_coding.jpg",
+        previewImage: "assets/certificates/previews/she_vibe_coding.png",
         documentUrl: "assets/certificates/SHE++ and ALIBABA/Certificate of Participation.pdf",
         type: "pdf",
         date: "July 18, 2025",
@@ -382,7 +382,7 @@ export const certificatesData = [
     items: [
       {
         subTitle: "Certificate of Completion",
-        previewImage: "assets/certificates/previews/alibaba_masterclass.jpg",
+        previewImage: "assets/certificates/previews/alibaba_masterclass.png",
         documentUrl: "assets/certificates/SHE++ and ALIBABA/Alibaba Masterclass Certificate.pdf",
         type: "pdf",
         date: "June 30, 2025",
@@ -424,7 +424,7 @@ export const certificatesData = [
     items: [
       {
         subTitle: "Session 1: Leadership and Technopreneurial Mindset",
-        previewImage: "assets/certificates/previews/she_session1.jpg",
+        previewImage: "assets/certificates/previews/she_session1.png",
         documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 1] Certificate of Completion (1).pdf",
         type: "pdf",
         date: "June 02, 2025",
@@ -432,7 +432,7 @@ export const certificatesData = [
       },
       {
         subTitle: "Session 2: Design Thinking",
-        previewImage: "assets/certificates/previews/she_session2.jpg",
+        previewImage: "assets/certificates/previews/she_session2.png",
         documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 2] Certificate of Completion.pdf",
         type: "pdf",
         date: "June 03, 2025",
@@ -440,7 +440,7 @@ export const certificatesData = [
       },
       {
         subTitle: "Session 3: Strategic Foresight and Intro to Technopreneurship",
-        previewImage: "assets/certificates/previews/she_session3.jpg",
+        previewImage: "assets/certificates/previews/she_session3.png",
         documentUrl: "assets/certificates/SHE++ and ALIBABA/[Session 3] Certificate of Completion.pdf",
         type: "pdf",
         date: "June 04, 2025",
@@ -461,7 +461,7 @@ export const certificatesData = [
     items: [
       {
         subTitle: "Certificate of Participation",
-        previewImage: "assets/certificates/previews/she_project_management.jpg",
+        previewImage: "assets/certificates/previews/she_project_management.png",
         documentUrl: "assets/certificates/SHE++ and ALIBABA/Certificate of Participation (1).pdf",
         type: "pdf",
         date: "May 21, 2025",
@@ -482,7 +482,7 @@ export const certificatesData = [
     items: [
       {
         subTitle: "Certificate of Attendance",
-        previewImage: "assets/certificates/previews/she_cybersecurity.jpg",
+        previewImage: "assets/certificates/previews/she_cybersecurity.png",
         documentUrl: "assets/certificates/SHE++ and ALIBABA/-WEBINAR 2- Cert of Attendance.pdf",
         type: "pdf",
         date: "March 19, 2025",
