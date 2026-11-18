@@ -1,4 +1,4 @@
-# Raiza A. Roces — Professional Web & Mobile Developer Portfolio
+# Raiza A. Roces — Personal Portfolio
 
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
