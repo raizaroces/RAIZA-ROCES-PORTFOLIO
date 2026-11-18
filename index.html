@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <!-- SEO & Social Sharing Meta Tags -->
+  <title>Raiza A. Roces | Portfolio - Frontend & Mobile Developer</title>
+  <meta name="description" content="Official personal portfolio of Raiza A. Roces, 4th-year BS Information Technology student & President's Lister at Pamantasan ng Lungsod ng Pasig. Featuring web, mobile, and AI projects." />
+  <meta name="keywords" content="Raiza Roces, Raiza A. Roces, Portfolio, Web Developer, Mobile Developer, Android Studio, React, Java, Pamantasan ng Lungsod ng Pasig, Balik-Belongings, Taytay Rizal" />
+  <meta name="author" content="Raiza A. Roces" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Raiza A. Roces | Professional Personal Portfolio" />
+  <meta property="og:description" content="Frontend & Mobile Application Developer. Explore projects, credentials, and resume." />
+  <meta property="og:image" content="assets/images/profile/MY_PIC.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicon Monogram -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='50' font-weight='bold' fill='white'>RR</text></svg>" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       NAVIGATION BAR
+       ======================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="Raiza Roces Home">
+        <div class="brand-monogram">RR</div>
+        <div class="brand-text">
+          <span class="brand-name">Raiza Roces</span>
+          <span class="brand-role">BSIT Candidate</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Action Controls -->
+      <div class="nav-actions">
+        <!-- Dark / Light Theme Toggle -->
+        <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+          <span id="theme-icon-container">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Quick View Resume Button in Header -->
+        <button type="button" class="btn btn-outline btn-sm nav-resume-btn open-resume-modal-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Resume</span>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Open Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-links">
+      <a href="#home" class="mobile-nav-link active">Home <span>→</span></a>
+      <a href="#about" class="mobile-nav-link">About Me <span>→</span></a>
+      <a href="#skills" class="mobile-nav-link">Technical Skills <span>→</span></a>
+      <a href="#projects" class="mobile-nav-link">Projects <span>→</span></a>
+      <a href="#resume" class="mobile-nav-link">Resume &amp; Credentials <span>→</span></a>
+      <a href="#contact" class="mobile-nav-link">Contact <span>→</span></a>
+    </div>
+
+    <div class="mobile-drawer-footer">
+      <button type="button" class="btn btn-primary open-resume-modal-btn" style="width: 100%;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+        </svg>
+        <span>View My Resume</span>
+      </button>
+      <a href="assets/docs/Roces,%20Raiza%20A.%20-%20Resume.pdf" download="Raiza_A_Roces_Resume.pdf" class="btn btn-secondary" style="width: 100%;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Download Resume (PDF)</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Column: Professional Introduction -->
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span>Available for Opportunities &amp; Collaborations</span>
+          </div>
+
+          <p class="hero-title-greeting">Hello, I'm</p>
+          <h1 class="hero-name">Raiza A. <span class="gradient-text">Roces</span></h1>
+          
+          <div class="hero-role">
+            <span>Frontend &amp; Mobile Application Developer</span>
+            <span style="color: var(--accent-primary);">•</span>
+            <span style="color: var(--text-muted); font-size: 0.95em;">BSIT Candidate</span>
+          </div>
+
+          <p class="hero-description">
+            4th-year Bachelor of Science in Information Technology student and President's Lister at Pamantasan ng Lungsod ng Pasig. Experienced in developing responsive web and mobile applications through academic and production-ready systems, with practical capabilities in frontend engineering, system testing, UI/UX design, and technical documentation.
+          </p>
+
+          <!-- Action CTA Group -->
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <span>View My Projects</span>
+            </a>
+
+            <!-- View My Resume Prominent Button -->
+            <button type="button" class="btn btn-secondary open-resume-modal-btn" id="hero-view-resume-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              <span>VIEW MY RESUME</span>
+            </button>
+          </div>
+
+          <!-- Social Links Bar -->
+          <div class="hero-social-links">
+            <a href="https://github.com/raizaroces" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Raiza Roces GitHub" title="GitHub: @raizaroces">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </a>
+
+            <a href="https://www.linkedin.com/in/raizaroces" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Raiza Roces LinkedIn" title="LinkedIn: @raizaroces">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+
+            <a href="mailto:raizaroces2800@gmail.com" class="social-icon-btn" aria-label="Send Email to Raiza Roces" title="Email: raizaroces2800@gmail.com">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Official Profile Picture Showcase (MY_PIC.png) -->
+        <div class="hero-image-wrapper">
+          <div class="hero-image-glow"></div>
+          
+          <div class="hero-image-container">
+            <img 
+              src="assets/images/profile/MY_PIC.png" 
+              alt="Raiza A. Roces - Professional Developer Portrait" 
+              class="hero-image" 
+              loading="eager"
+            />
+          </div>
+
+          <!-- Floating Interactive Skill Badges -->
+          <div class="floating-badge badge-top-left">
+            <div class="floating-badge-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <div class="floating-badge-text">
+              <span class="badge-label">Specialization</span>
+              <span class="badge-value">Web &amp; Android</span>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-bottom-right">
+            <div class="floating-badge-icon" style="color: var(--accent-secondary); background: rgba(6, 182, 212, 0.12);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="floating-badge-text">
+              <span class="badge-label">Academic Honor</span>
+              <span class="badge-value">President's Lister</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Highlights Bar -->
+      <div class="hero-highlights-strip">
+        <div class="highlight-card">
+          <div class="highlight-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <div class="highlight-info">
+            <span class="highlight-number">7</span>
+            <span class="highlight-label">Verified Development Projects</span>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <div class="highlight-icon-box" style="color: #38bdf8; background: rgba(56, 189, 248, 0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+          </div>
+          <div class="highlight-info">
+            <span class="highlight-number">16</span>
+            <span class="highlight-label">Technical Certifications</span>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <div class="highlight-icon-box" style="color: #a855f7; background: rgba(168, 85, 247, 0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <div class="highlight-info">
+            <span class="highlight-number">4th Year</span>
+            <span class="highlight-label">BS Information Technology</span>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <div class="highlight-icon-box" style="color: #34d399; background: rgba(52, 211, 153, 0.12);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="highlight-info">
+            <span class="highlight-number" style="font-size: 1.15rem;">Taytay, Rizal</span>
+            <span class="highlight-label">Philippines (Open to Relocation)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       ABOUT ME SECTION
+       ======================================================================== -->
+  <section class="section" id="about">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">Background &amp; Profile</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <p class="section-subtitle">A dedicated Information Technology student committed to technical excellence, continuous learning, and crafting dependable digital solutions.</p>
+      </div>
+
+      <div class="about-grid">
+        
+        <!-- Left Column: Portrait & Key Metadata -->
+        <div class="about-card-left">
+          <div class="about-photo-wrapper">
+            <img 
+              src="assets/images/profile/MY_PIC.png" 
+              alt="Raiza A. Roces" 
+              class="about-photo"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="about-personal-meta">
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <span><strong>Full Name:</strong> Raiza A. Roces</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </span>
+              <span><strong>Degree:</strong> BS in Information Technology (4th Year)</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+              <span><strong>Location:</strong> Santa Ana, Taytay, Rizal, Philippines</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <span><strong>Email:</strong> <a href="mailto:raizaroces2800@gmail.com" style="color: var(--accent-primary);">raizaroces2800@gmail.com</a></span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <span><strong>Phone:</strong> <a href="tel:09763020844" style="color: var(--text-primary);">09763020844</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Narrative & Structured Timeline -->
+        <div class="about-content-right">
+          
+          <div class="about-narrative">
+            <p class="about-paragraph">
+              I am a 4th-year Bachelor of Science in Information Technology student at Pamantasan ng Lungsod ng Pasig and an active President's Lister. Through rigorous academic projects, I have developed a strong foundation in both frontend and backend architectures, system testing (QA), and comprehensive technical documentation.
+            </p>
+            <p class="about-paragraph" style="margin-top: 1rem;">
+              My development philosophy focuses on building accessible, intuitive, and reliable software that solves tangible problems. From collaborating on modern web applications like <em>Balik-Belongings</em> and <em>Student Violation Management System</em> to building mobile Android applications using Android Studio and Java, I bring a responsible, meticulous, and hardworking mindset eager to contribute to collaborative engineering teams.
+            </p>
+          </div>
+
+          <!-- Educational Background -->
+          <div class="about-education-block">
+            <h3 class="about-subheading">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>Educational Background</span>
+            </h3>
+
+            <div class="timeline-list">
+              
+              <!-- Pamantasan ng Lungsod ng Pasig -->
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <div class="timeline-header">
+                    <span class="timeline-title">Pamantasan ng Lungsod ng Pasig</span>
+                    <span class="timeline-date">2023 - Present</span>
+                  </div>
+                  <div class="timeline-subtitle">Bachelor of Science in Information Technology</div>
+                  <div class="timeline-desc">
+                    <div class="timeline-bullet">Current Year Level: 4th Year</div>
+                    <div class="timeline-bullet">Academic Distinction: <strong>President's Lister</strong></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Taytay Senior High School -->
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <div class="timeline-header">
+                    <span class="timeline-title">Taytay Senior High School</span>
+                    <span class="timeline-date">2022 - 2023</span>
+                  </div>
+                  <div class="timeline-subtitle">Information and Communications Technology (ICT)</div>
+                  <div class="timeline-desc">
+                    <div class="timeline-bullet"><strong>Graduated Senior High School With Honor</strong></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Arellano University -->
+              <div class="timeline-item">
+                <div class="timeline-card">
+                  <div class="timeline-header">
+                    <span class="timeline-title">Arellano University - Andres Bonifacio Campus</span>
+                    <span class="timeline-date">2021 - 2022</span>
+                  </div>
+                  <div class="timeline-subtitle">Information and Communications Technology (ICT)</div>
+                  <div class="timeline-desc">
+                    <div class="timeline-bullet"><strong>Completed Grade 11 Senior High School With High Honor</strong></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Professional Strengths & Soft Skills -->
+          <div class="about-strengths-block">
+            <h3 class="about-subheading">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Core Strengths &amp; Work Ethics</span>
+            </h3>
+
+            <div class="strengths-grid">
+              <div class="strength-chip">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-primary);">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Willingness to Learn &amp; Upskill</span>
+              </div>
+
+              <div class="strength-chip">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-secondary);">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Teamwork &amp; Collaboration</span>
+              </div>
+
+              <div class="strength-chip">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #a855f7;">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Clear Communication &amp; Docs</span>
+              </div>
+
+              <div class="strength-chip">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #34d399;">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Time Management &amp; Reliability</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TECHNICAL SKILLS SECTION
+       ======================================================================== -->
+  <section class="section" id="skills" style="background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">Verified Capabilities</span>
+        <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+        <p class="section-subtitle">Organized by development discipline, verified strictly from my actual resume, project implementations, and official industry certifications.</p>
+      </div>
+
+      <div class="skills-grid">
+        
+        <!-- Programming Languages -->
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <div class="skill-category-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 class="skill-category-title">Programming Languages</h3>
+          </div>
+          <div class="skills-pill-container">
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">PHP</span>
+            <span class="skill-pill">JavaScript (ES6+)</span>
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">HTML5</span>
+            <span class="skill-pill">CSS3</span>
+          </div>
+        </div>
+
+        <!-- Web & Frontend Development -->
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <div class="skill-category-icon" style="color: var(--accent-secondary); background: rgba(6, 182, 212, 0.12);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3 class="skill-category-title">Web &amp; Frontend Development</h3>
+          </div>
+          <div class="skills-pill-container">
+            <span class="skill-pill">React.js</span>
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Express.js</span>
+            <span class="skill-pill">Role-Based Access Control (RBAC)</span>
+            <span class="skill-pill">Responsive UI/UX</span>
+            <span class="skill-pill">System Testing / QA</span>
+          </div>
+        </div>
+
+        <!-- Mobile Application Development -->
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <div class="skill-category-icon" style="color: #10b981; background: rgba(16, 185, 129, 0.12);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="skill-category-title">Mobile App Development</h3>
+          </div>
+          <div class="skills-pill-container">
+            <span class="skill-pill">Android Studio</span>
+            <span class="skill-pill">Android Development (Java)</span>
+            <span class="skill-pill">Point-of-Sale (POS) Logic</span>
+            <span class="skill-pill">Cart &amp; Checkout Computing</span>
+            <span class="skill-pill">Mobile UI/UX Design</span>
+          </div>
+        </div>
+
+        <!-- Database Management -->
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <div class="skill-category-icon" style="color: #f59e0b; background: rgba(245, 158, 11, 0.12);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="skill-category-title">Database Management</h3>
+          </div>
+          <div class="skills-pill-container">
+            <span class="skill-pill">MySQL</span>
+            <span class="skill-pill">Relational Schema Design</span>
+            <span class="skill-pill">Data Management</span>
+            <span class="skill-pill">Document Classification</span>
+          </div>
+        </div>
+
+        <!-- Development Tools & Platforms -->
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <div class="skill-category-icon" style="color: #a855f7; background: rgba(168, 85, 247, 0.12);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+            </div>
+            <h3 class="skill-category-title">Tools &amp; Platforms</h3>
+          </div>
+          <div class="skills-pill-container">
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">GitHub</span>
+            <span class="skill-pill">VS Code</span>
+            <span class="skill-pill">Android Studio</span>
+            <span class="skill-pill">Figma (Basic)</span>
+            <span class="skill-pill">Canva</span>
+            <span class="skill-pill">Microsoft Excel (Basic)</span>
+          </div>
+        </div>
+
+        <!-- AI & Cloud Competencies (Verified by Certifications) -->
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <div class="skill-category-icon" style="color: #ec4899; background: rgba(236, 72, 153, 0.12);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              </svg>
+            </div>
+            <h3 class="skill-category-title">AI &amp; Cloud Competencies</h3>
+          </div>
+          <div class="skills-pill-container">
+            <span class="skill-pill">Prompt Engineering</span>
+            <span class="skill-pill">Gemini for App Developers</span>
+            <span class="skill-pill">Claude 101</span>
+            <span class="skill-pill">AI Tools (ChatGPT, Gemini, Copilot)</span>
+            <span class="skill-pill">Google Cloud Fundamentals</span>
+            <span class="skill-pill">Alibaba Cloud Masterclass</span>
+            <span class="skill-pill">Machine Learning &amp; Computer Vision</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PROJECTS SECTION (ALL 7 PROJECTS DISPLAYED)
+       ======================================================================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">Portfolio Showcase</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle">Showcasing all seven verified projects. Each project features its authentic <code>[MAIN]</code> thumbnail preview, verified GitHub repository or live deployment, and interactive screenshot gallery.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="projects-filter-bar">
+        <button type="button" class="filter-btn project-filter-btn active" data-filter="all">All Projects (7)</button>
+        <button type="button" class="filter-btn project-filter-btn" data-filter="web">Web Applications (4)</button>
+        <button type="button" class="filter-btn project-filter-btn" data-filter="mobile">Mobile Apps (3)</button>
+      </div>
+
+      <!-- Dynamic Projects Grid (Populated via js/main.js) -->
+      <div class="projects-grid" id="projects-grid">
+        <!-- Rendered by JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       RESUME & CREDENTIALS SECTION
+       ======================================================================== -->
+  <section class="section resume-section-wrapper" id="resume">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">Credentials &amp; Verification</span>
+        <h2 class="section-title">Resume &amp; <span class="gradient-text">Credentials</span></h2>
+        <p class="section-subtitle">Inspect my authentic resume document directly from the portfolio or download a clean PDF copy for your records.</p>
+      </div>
+
+      <!-- Primary Resume Action Banner -->
+      <div class="resume-cta-banner">
+        <div class="resume-banner-text">
+          <h3 class="resume-banner-title">Authentic Resume Document</h3>
+          <p class="resume-banner-desc">
+            Directly view or download my official curriculum vitae in PDF format. Preserves original formatting, academic standing, verified contact details, and complete project scopes.
+          </p>
+        </div>
+
+        <div class="resume-banner-actions">
+          <!-- Required Prominent "VIEW MY RESUME" Button -->
+          <button type="button" class="btn btn-primary btn-resume-view open-resume-modal-btn" id="resume-section-view-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span>VIEW MY RESUME</span>
+          </button>
+
+          <!-- Download Resume Button -->
+          <a href="assets/docs/Roces,%20Raiza%20A.%20-%20Resume.pdf" download="Raiza_A_Roces_Resume.pdf" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume (PDF)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Interactive Tabbed Credentials Details -->
+      <div class="resume-tabs-nav">
+        <button type="button" class="resume-tab-btn active" data-tab-target="tab-certs">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="7"></circle>
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+          </svg>
+          <span>Certifications (16)</span>
+        </button>
+
+        <button type="button" class="resume-tab-btn" data-tab-target="tab-experience">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          <span>Work Immersion &amp; Office Experience</span>
+        </button>
+
+        <button type="button" class="resume-tab-btn" data-tab-target="tab-education">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+          <span>Academic Honors &amp; Degree</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: All 16 Verified Certifications -->
+      <div class="resume-tab-content active" id="tab-certs">
+        <div class="certs-grid">
+          
+          <div class="cert-card">
+            <div class="cert-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">AI-Powered Cybersecurity: Defending Systems with Machine Learning</h4>
+              <span class="cert-issuer">PhilDev &amp; Limitless Lab</span>
+              <span class="cert-date">March 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #06b6d4; background: rgba(6, 182, 212, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">SHE++ Masterclass on Alibaba Cloud System</h4>
+              <span class="cert-issuer">PhilDev, Wells Fargo &amp; Alibaba Cloud</span>
+              <span class="cert-date">June 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #a855f7; background: rgba(168, 85, 247, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">SHE++ Technopreneurship &amp; Leadership Workshop Series (3-Part)</h4>
+              <span class="cert-issuer">PhilDev &amp; Limitless Lab</span>
+              <span class="cert-date">June 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #f59e0b; background: rgba(245, 158, 11, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">The Future of the Digital Era</h4>
+              <span class="cert-issuer">ISITE Inc.</span>
+              <span class="cert-date">June 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #10b981; background: rgba(16, 185, 129, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Feel the Vibes: Unleash the Power of Vibe-Coding</h4>
+              <span class="cert-issuer">PhilDev &amp; Alibaba Cloud Academy</span>
+              <span class="cert-date">July 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #6366f1; background: rgba(99, 102, 241, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">TOPCIT (Test of Practical Competency in ICT)</h4>
+              <span class="cert-issuer">IITP (Institute for Information &amp; Communications Technology Promotion)</span>
+              <span class="cert-date">August 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #3b82f6; background: rgba(59, 130, 246, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Google Cloud Fundamentals: Core Infrastructure</h4>
+              <span class="cert-issuer">Google Cloud</span>
+              <span class="cert-date">August 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #f59e0b; background: rgba(245, 158, 11, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">BOOKKEEPING NC II</h4>
+              <span class="cert-issuer">TESDA</span>
+              <span class="cert-date">September 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #06b6d4; background: rgba(6, 182, 212, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Computer Hardware Basics</h4>
+              <span class="cert-issuer">Cisco</span>
+              <span class="cert-date">September 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #06b6d4; background: rgba(6, 182, 212, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Operating Systems Basics</h4>
+              <span class="cert-issuer">Cisco</span>
+              <span class="cert-date">September 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #06b6d4; background: rgba(6, 182, 212, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Networking Basics</h4>
+              <span class="cert-issuer">Cisco</span>
+              <span class="cert-date">September 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #ec4899; background: rgba(236, 72, 153, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Gemini for Application Developers</h4>
+              <span class="cert-issuer">Google</span>
+              <span class="cert-date">September 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #06b6d4; background: rgba(6, 182, 212, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-4 4 4 4 0 0 1-4-4V6a4 4 0 0 1 4-4z"></path><path d="M18 20a6 6 0 0 0-12 0"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Introduction to Modern AI</h4>
+              <span class="cert-issuer">Cisco</span>
+              <span class="cert-date">September 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #f59e0b; background: rgba(245, 158, 11, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Introduction to Generative AI - Art of the Possible</h4>
+              <span class="cert-issuer">AWS Training and Certification</span>
+              <span class="cert-date">October 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #f59e0b; background: rgba(245, 158, 11, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Essentials of Prompt Engineering</h4>
+              <span class="cert-issuer">AWS Training and Certification</span>
+              <span class="cert-date">October 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon-wrapper" style="color: #6366f1; background: rgba(99, 102, 241, 0.12);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            </div>
+            <div class="cert-info">
+              <h4 class="cert-title">Claude 101</h4>
+              <span class="cert-issuer">DataCamp</span>
+              <span class="cert-date">October 2026</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tab 2: Work Immersion & Experience -->
+      <div class="resume-tab-content" id="tab-experience">
+        <div class="timeline-list">
+          
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-title">Staff / Treasury Office Assistant</span>
+                <span class="timeline-date">July - August 2023</span>
+              </div>
+              <div class="timeline-subtitle">Treasury Office - Taytay Municipal Hall | Special Program for Employment of Students (SPES)</div>
+              <div class="timeline-desc">
+                <div class="timeline-bullet">Assisted and systematically organized municipal financial and administrative records.</div>
+                <div class="timeline-bullet">Managed document issuance, transmittals, and cross-departmental coordination across municipal offices.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-title">Staff / Administrative Assistant</span>
+                <span class="timeline-date">April - May 2023</span>
+              </div>
+              <div class="timeline-subtitle">Municipal Administrator's Office - Taytay Municipal Hall | Work Immersion</div>
+              <div class="timeline-desc">
+                <div class="timeline-bullet">Managed document verification: stamped trip tickets, occupational permits, violations, and recorded client information.</div>
+                <div class="timeline-bullet">Encoded and structured administrative datasets using Microsoft Excel with high accuracy.</div>
+                <div class="timeline-bullet">Issued and received official documentation to and from various municipal departments.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tab 3: Academic Honors & Degree -->
+      <div class="resume-tab-content" id="tab-education">
+        <div class="timeline-list">
+          
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-title">Bachelor of Science in Information Technology</span>
+                <span class="timeline-date">2023 - Present</span>
+              </div>
+              <div class="timeline-subtitle">Pamantasan ng Lungsod ng Pasig</div>
+              <div class="timeline-desc">
+                <div class="timeline-bullet">Current Year Level: 4th Year</div>
+                <div class="timeline-bullet">Academic Standing: <strong>President's Lister</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-title">Information and Communications Technology</span>
+                <span class="timeline-date">2022 - 2023</span>
+              </div>
+              <div class="timeline-subtitle">Taytay Senior High School</div>
+              <div class="timeline-desc">
+                <div class="timeline-bullet"><strong>Graduated Senior High School With Honor</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-title">Information and Communications Technology</span>
+                <span class="timeline-date">2021 - 2022</span>
+              </div>
+              <div class="timeline-subtitle">Arellano University - Andres Bonifacio Campus</div>
+              <div class="timeline-desc">
+                <div class="timeline-bullet"><strong>Completed Grade 11 Senior High School With High Honor</strong></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT ME SECTION (REAL FUNCTIONAL EMAIL INTEGRATION)
+       ======================================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-badge">Get In Touch</span>
+        <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+        <p class="section-subtitle">Interested in discussing employment opportunities, collaborative projects, or academic inquiries? Send a message directly to my inbox.</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Left: Contact Details & Social Profiles -->
+        <div class="contact-info-panel">
+          <div>
+            <h3 class="contact-panel-title">Let's Connect</h3>
+            <p class="contact-panel-desc">
+              I am actively seeking software engineering, frontend development, mobile development, or QA testing opportunities. Feel free to contact me through the form or my direct channels below.
+            </p>
+          </div>
+
+          <div class="contact-cards-list">
+            
+            <!-- Email -->
+            <a href="mailto:raizaroces2800@gmail.com" class="contact-card-item">
+              <div class="contact-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-card-text">
+                <span class="contact-label">Email Address</span>
+                <span class="contact-value">raizaroces2800@gmail.com</span>
+              </div>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:09763020844" class="contact-card-item">
+              <div class="contact-icon-box" style="color: #10b981; background: rgba(16, 185, 129, 0.12);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div class="contact-card-text">
+                <span class="contact-label">Mobile Number</span>
+                <span class="contact-value">09763020844</span>
+              </div>
+            </a>
+
+            <!-- Location -->
+            <div class="contact-card-item">
+              <div class="contact-icon-box" style="color: #38bdf8; background: rgba(56, 189, 248, 0.12);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="contact-card-text">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Santa Ana, Taytay, Rizal, Philippines</span>
+              </div>
+            </div>
+
+            <!-- GitHub Profile -->
+            <a href="https://github.com/raizaroces" target="_blank" rel="noopener noreferrer" class="contact-card-item">
+              <div class="contact-icon-box" style="color: #e2e8f0; background: rgba(226, 232, 240, 0.12);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </div>
+              <div class="contact-card-text">
+                <span class="contact-label">GitHub Repository</span>
+                <span class="contact-value">github.com/raizaroces</span>
+              </div>
+            </a>
+
+            <!-- LinkedIn Profile -->
+            <a href="https://www.linkedin.com/in/raizaroces" target="_blank" rel="noopener noreferrer" class="contact-card-item">
+              <div class="contact-icon-box" style="color: #0a66c2; background: rgba(10, 102, 194, 0.12);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </div>
+              <div class="contact-card-text">
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">linkedin.com/in/raizaroces</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Right: Functional Form Connected to raizaroces2800@gmail.com -->
+        <div class="contact-form-panel">
+          <form id="portfolio-contact-form" novalidate>
+            
+            <!-- Real-Time Feedback Alert -->
+            <div id="form-status-alert" class="form-status-alert" role="alert"></div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name *</label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="name" 
+                  class="form-input" 
+                  placeholder="e.g. Maria Santos" 
+                  required 
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address *</label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="e.g. maria.santos@company.com" 
+                  required 
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">Subject *</label>
+              <input 
+                type="text" 
+                id="contact-subject" 
+                name="subject" 
+                class="form-input" 
+                placeholder="e.g. Opportunity Discussion / Project Collaboration" 
+                required 
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message *</label>
+              <textarea 
+                id="contact-message" 
+                name="message" 
+                class="form-textarea" 
+                placeholder="Write your message here... Describe the opportunity or inquiry." 
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="contact-submit-btn" style="width: 100%;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 0.5rem;">
+            <div class="brand-monogram">RR</div>
+            <span class="brand-name">Raiza A. Roces</span>
+          </div>
+          <p class="footer-desc">
+            4th-year BS Information Technology student &amp; President's Lister at Pamantasan ng Lungsod ng Pasig. Passionate about developing modern web applications, mobile platforms, and AI-enabled software solutions.
+          </p>
+        </div>
+
+        <ul class="footer-nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Raiza A. Roces. All rights reserved.</p>
+        <p>Built with modern web standards, responsive architecture, and authentic credentials.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL 1: PROJECT SCREENSHOT GALLERY LIGHTBOX
+       ======================================================================== -->
+  <div class="modal-overlay" id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-project-name">
+    <div class="lightbox-dialog">
+      
+      <div class="lightbox-header">
+        <div class="lightbox-title-area">
+          <h3 class="lightbox-project-name" id="lightbox-project-name">Project Screenshots</h3>
+          <span class="lightbox-image-caption" id="lightbox-image-caption">Image description</span>
+        </div>
+        <div class="lightbox-header-actions">
+          <span class="lightbox-counter-badge" id="lightbox-counter">1 of 1</span>
+          <button type="button" class="modal-close-btn" id="lightbox-close-btn" aria-label="Close Gallery">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="lightbox-body">
+        <button type="button" class="lightbox-nav-btn lightbox-prev-btn" id="lightbox-prev-btn" aria-label="Previous Screenshot">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <img src="" alt="Project Screenshot Preview" id="lightbox-display-image" class="lightbox-display-image" />
+
+        <button type="button" class="lightbox-nav-btn lightbox-next-btn" id="lightbox-next-btn" aria-label="Next Screenshot">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Thumbnails Rail -->
+      <div class="lightbox-thumbnails-footer" id="lightbox-thumbs">
+        <!-- Injected via js/main.js -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: INTERACTIVE RESUME VIEWER MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="resume-modal" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+    <div class="resume-modal-dialog">
+      
+      <div class="resume-modal-header">
+        <h3 class="resume-modal-title" id="resume-modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span>Curriculum Vitae - Raiza A. Roces</span>
+        </h3>
+
+        <div class="resume-modal-actions">
+          <a href="assets/docs/Roces,%20Raiza%20A.%20-%20Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" title="Open in new browser tab">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            <span>Open in Tab</span>
+          </a>
+
+          <a href="assets/docs/Roces,%20Raiza%20A.%20-%20Resume.pdf" download="Raiza_A_Roces_Resume.pdf" class="btn btn-primary btn-sm">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download PDF</span>
+          </a>
+
+          <button type="button" class="modal-close-btn" id="resume-modal-close-btn" aria-label="Close Resume Viewer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="resume-iframe-container">
+        <iframe 
+          id="resume-modal-iframe" 
+          class="resume-iframe" 
+          title="Raiza A. Roces Resume Document"
+        >
+          <p>Your browser does not support embedded PDF frames. <a href="assets/docs/Roces,%20Raiza%20A.%20-%20Resume.pdf" target="_blank">Click here to view the PDF directly</a>.</p>
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button type="button" class="back-to-top-btn" id="back-to-top-btn" aria-label="Scroll Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Lucide Icons via CDN (with robust inline SVG fallbacks already embedded) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- Main Application Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
