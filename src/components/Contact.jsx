@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle, AlertCircle, Loader, ExternalLink } from 'lucide-react';
+import { Mail, Send, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
 export default function Contact({ onShowToast }) {
@@ -17,21 +17,6 @@ export default function Contact({ onShowToast }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Direct Mailto helper that pre-populates email app
-  const handleDirectEmail = () => {
-    const name = formData.name.trim();
-    const email = formData.email.trim();
-    const subject = formData.subject.trim() || 'Portfolio Inquiry';
-    const message = formData.message.trim();
-
-    const bodyText = `Hi Raiza,\n\n${message || '[Your message here]'}\n\nBest regards,\n${name || 'A Visitor'} ${email ? `(${email})` : ''}`;
-    const mailtoUrl = `mailto:raizaroces2800@gmail.com?subject=${encodeURIComponent(
-      `[Portfolio] ${subject}`
-    )}&body=${encodeURIComponent(bodyText)}`;
-
-    window.location.href = mailtoUrl;
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -40,7 +25,7 @@ export default function Contact({ onShowToast }) {
     const subject = formData.subject.trim();
     const message = formData.message.trim();
 
-    // 1. Client-Side Validation
+    // 1. Client-Side Input Validation
     if (name.length < 2) {
       setStatus({
         type: 'error',
@@ -53,7 +38,7 @@ export default function Contact({ onShowToast }) {
     if (!emailRegex.test(email)) {
       setStatus({
         type: 'error',
-        message: 'Please provide a valid email address so I can get back to you.'
+        message: 'Please provide a valid email address so I can respond to you.'
       });
       return;
     }
@@ -74,64 +59,98 @@ export default function Contact({ onShowToast }) {
       return;
     }
 
-    // Check if opened as raw file://
-    if (window.location.protocol === 'file:') {
-      const fallbackUrl = `mailto:raizaroces2800@gmail.com?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(`Hi Raiza,\n\n${message}\n\nFrom: ${name} (${email})`)}`;
-      setStatus({
-        type: 'warning',
-        message:
-          'You are browsing as a local HTML file (file://). FormSubmit requires a live web server (e.g. npm run dev or deployed site).',
-        mailtoFallback: fallbackUrl
-      });
-      return;
-    }
-
-    // 2. Submit via FormSubmit AJAX to raizaroces2800@gmail.com
     setLoading(true);
     setStatus(null);
 
+    // 2. Dual-Layer Resilient Submission:
+    // Try Vercel Serverless Function (/api/contact) with Resend & Custom HTML Email first.
+    // If not deployed with Resend or running standalone, fall back to FormSubmit.
     try {
-      const response = await fetch('https://formsubmit.co/ajax/raizaroces2800@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          _subject: `[Portfolio Contact] ${subject} - From ${name}`,
-          message: message,
-          _captcha: 'false',
-          _template: 'table'
-        })
-      });
+      let sentSuccessfully = false;
 
-      const result = await response.json();
+      try {
+        const serverlessRes = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            subject,
+            message
+          })
+        });
 
-      // Check if FormSubmit requires initial one-time activation
-      if (result.message && result.message.toLowerCase().includes('activation')) {
-        setStatus({
-          type: 'warning',
-          message:
-            "Form submitted! FormSubmit has sent a one-time activation link to raizaroces2800@gmail.com. Please open your Gmail inbox and click 'Activate Form' to activate your endpoint. All future messages will then arrive instantly!"
-        });
-        if (onShowToast) onShowToast('One-time activation email sent!', 'toast-success');
-      } else if (response.ok && (result.success === 'true' || result.success === true)) {
-        setStatus({
-          type: 'success',
-          message:
-            'Thank you! Your message has been sent directly to my email (raizaroces2800@gmail.com). I will get back to you promptly.'
-        });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        if (onShowToast) onShowToast('Message sent successfully!', 'toast-success');
-      } else {
-        throw new Error(result.message || 'Failed to deliver message.');
+        if (serverlessRes.ok) {
+          const serverlessData = await serverlessRes.json();
+          if (serverlessData.success) {
+            setStatus({
+              type: 'success',
+              message:
+                'Thank you! Your message has been sent directly to my email (raizaroces2800@gmail.com). I will get back to you promptly.'
+            });
+            setFormData({ name: '', email: '', subject: '', message: '' });
+            if (onShowToast) onShowToast('Message sent successfully!', 'toast-success');
+            sentSuccessfully = true;
+          }
+        }
+      } catch (serverlessErr) {
+        // Fallback to FormSubmit if /api/contact is unavailable
+        console.info('Serverless endpoint bypassed, using FormSubmit fallback.');
+      }
+
+      // If Serverless Resend did not handle it, submit via FormSubmit
+      if (!sentSuccessfully) {
+        const formSubmitRes = await fetch(
+          'https://formsubmit.co/ajax/raizaroces2800@gmail.com',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            },
+            body: JSON.stringify({
+              name,
+              email,
+              _subject: `[Portfolio Contact] ${subject} - From ${name}`,
+              message,
+              _captcha: 'false',
+              _template: 'table'
+            })
+          }
+        );
+
+        const formSubmitData = await formSubmitRes.json();
+
+        if (
+          formSubmitData.message &&
+          formSubmitData.message.toLowerCase().includes('activation')
+        ) {
+          setStatus({
+            type: 'warning',
+            message:
+              "Form submitted! FormSubmit has sent a one-time activation link to raizaroces2800@gmail.com. Please open your Gmail inbox and click 'Activate Form' to confirm your endpoint."
+          });
+          if (onShowToast) onShowToast('Activation email sent!', 'toast-success');
+        } else if (
+          formSubmitRes.ok &&
+          (formSubmitData.success === 'true' || formSubmitData.success === true)
+        ) {
+          setStatus({
+            type: 'success',
+            message:
+              'Thank you! Your message has been sent directly to my email (raizaroces2800@gmail.com). I will get back to you promptly.'
+          });
+          setFormData({ name: '', email: '', subject: '', message: '' });
+          if (onShowToast) onShowToast('Message sent successfully!', 'toast-success');
+        } else {
+          throw new Error(formSubmitData.message || 'Failed to deliver message.');
+        }
       }
     } catch (err) {
-      console.warn('FormSubmit dispatch error:', err);
+      console.warn('Form submission error:', err);
       const fallbackUrl = `mailto:raizaroces2800@gmail.com?subject=${encodeURIComponent(
         subject
       )}&body=${encodeURIComponent(`Hi Raiza,\n\n${message}\n\nFrom: ${name} (${email})`)}`;
@@ -162,7 +181,7 @@ export default function Contact({ onShowToast }) {
 
         <div className="contact-grid">
           
-          {/* Left: Contact Info Cards */}
+          {/* LEFT SIDE: Heading, Intro, Email Card, GitHub Card, LinkedIn Card */}
           <div className="contact-info-panel">
             <div>
               <h3 className="contact-panel-title">Let's Connect</h3>
@@ -173,18 +192,18 @@ export default function Contact({ onShowToast }) {
 
             <div className="contact-cards-list">
               
-              {/* Direct Clickable Email Link */}
+              {/* Email Address Card (Clickable via mailto, label: EMAIL ADDRESS) */}
               <a href="mailto:raizaroces2800@gmail.com" className="contact-card-item">
                 <div className="contact-icon-box">
                   <Mail size={22} />
                 </div>
                 <div className="contact-card-text">
-                  <span className="contact-label">Email Address (Click to Open)</span>
+                  <span className="contact-label">EMAIL ADDRESS</span>
                   <span className="contact-value">raizaroces2800@gmail.com</span>
                 </div>
               </a>
 
-              {/* GitHub */}
+              {/* GitHub Card */}
               <a
                 href="https://github.com/raizaroces"
                 target="_blank"
@@ -200,7 +219,7 @@ export default function Contact({ onShowToast }) {
                 </div>
               </a>
 
-              {/* LinkedIn */}
+              {/* LinkedIn Card */}
               <a
                 href="https://www.linkedin.com/in/raizaroces"
                 target="_blank"
@@ -219,7 +238,7 @@ export default function Contact({ onShowToast }) {
             </div>
           </div>
 
-          {/* Right: Functional Form */}
+          {/* RIGHT SIDE: Full Name, Email Address, Subject, Message, and ONE primary button: "Send Message" */}
           <div className="contact-form-panel">
             <form onSubmit={handleSubmit} noValidate>
               
@@ -254,7 +273,7 @@ export default function Contact({ onShowToast }) {
                           href={status.mailtoFallback}
                           style={{ textDecoration: 'underline', fontWeight: 700, color: 'inherit' }}
                         >
-                          Click here to send directly via your email app (Gmail / Outlook) →
+                          Click here to send directly via your email client →
                         </a>
                       </div>
                     )}
@@ -327,38 +346,26 @@ export default function Contact({ onShowToast }) {
                 ></textarea>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  id="contact-submit-btn"
-                  style={{ width: '100%' }}
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <>
-                      <Loader size={18} style={{ animation: 'spin 1s linear infinite' }} />
-                      <span>Sending Message...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      <span>Send Message (Web Form)</span>
-                    </>
-                  )}
-                </button>
-
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={handleDirectEmail}
-                  title="Open your device's email client with pre-filled details"
-                  style={{ width: '100%' }}
-                >
-                  <ExternalLink size={16} />
-                  <span>Send via Email Client (Direct Mailto)</span>
-                </button>
-              </div>
+              {/* ONLY ONE primary button labeled "Send Message" */}
+              <button
+                type="submit"
+                className="btn btn-primary"
+                id="contact-submit-btn"
+                style={{ width: '100%' }}
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <Loader size={18} style={{ animation: 'spin 1s linear infinite' }} />
+                    <span>Sending Message...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send size={18} />
+                    <span>Send Message</span>
+                  </>
+                )}
+              </button>
             </form>
           </div>
 

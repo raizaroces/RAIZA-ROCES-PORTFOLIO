@@ -44,17 +44,18 @@ A modern, elegant, responsive, and accessible personal portfolio website built w
   - Responsive lightbox modal for projects with multiple screenshots.
   - Includes next/prev arrows, image counter (e.g. `1 of 8`), thumbnail rail, image captions, and keyboard shortcuts (`Escape`, `ArrowLeft`, `ArrowRight`).
 
-- **Functional Contact Form with Real Email Delivery**:
-  - Directly connected to Raiza's email: `raizaroces2800@gmail.com` via secure FormSubmit AJAX integration.
-  - Full client-side input validation (Name, Email format, Subject, Message).
-  - Real-time success and error notifications with direct `mailto:` fallback.
-  - Clickable contact links (`mailto:`), plus verified GitHub and LinkedIn profiles (no phone number or home address displayed).
+- **Redesigned Contact Section & Professional HTML Email Notification**:
+  - Clean, focused layout with **ONE primary "Send Message" button**.
+  - Verified contact channels: Email (`raizaroces2800@gmail.com`), GitHub, and LinkedIn.
+  - Dual-layer serverless email architecture:
+    - **Vercel Serverless Function** (`/api/contact`) utilizing **Resend** to dispatch styled, responsive HTML emails with Reply-To set to the visitor's email.
+    - Seamless fallback to FormSubmit AJAX.
+  - Professional HTML email template matching the portfolio color palette with sender info, readable message container, and direct reply button.
 
 - **Design System & Responsive Architecture**:
   - **Dark Mode by default** with a smooth Dark / Light mode toggle.
   - Fluid typography powered by `Plus Jakarta Sans` and `Outfit`.
   - Built with **React 18 + Vite** for fast performance, smooth state transitions, and component reusability.
-  - Production build in `dist/` ready to be hosted anywhere.
 
 ---
 
@@ -62,6 +63,9 @@ A modern, elegant, responsive, and accessible personal portfolio website built w
 
 ```text
 d:\RAIZA ROCES PORTFOLIO\
+├── api\
+│   └── contact.js             # Vercel Serverless Function (Resend + Custom HTML Email)
+├── vercel.json                # Vercel deployment & routing configuration
 ├── index.html                 # Vite HTML entrypoint
 ├── package.json               # Dependencies and scripts (React 18, Vite, Lucide)
 ├── vite.config.js             # Vite configuration with relative base path
@@ -78,7 +82,7 @@ d:\RAIZA ROCES PORTFOLIO\
 │   │   ├── LightboxModal.jsx  # Interactive screenshot gallery lightbox
 │   │   ├── Resume.jsx         # Resume credentials & tabs
 │   │   ├── ResumeModal.jsx    # Fullscreen embedded PDF resume viewer
-│   │   ├── Contact.jsx        # Functional AJAX contact form (FormSubmit)
+│   │   ├── Contact.jsx        # Contact form with real-time validation & dispatch
 │   │   ├── Footer.jsx         # Clean footer
 │   │   └── Icons.jsx          # Vector social icons (GitHub, LinkedIn)
 │   └── data\
@@ -88,44 +92,77 @@ d:\RAIZA ROCES PORTFOLIO\
 │   └── style.css              # Custom styling & dark/light theme variables
 ├── public\
 │   └── assets\                # Static public assets (images, screenshots, resume PDF)
-└── dist\                      # Optimized production build (deployable static files)
+└── dist\                      # Optimized production build
 ```
 
 ---
 
 ## 🚀 How to Run Locally
 
-### Option 1: Development Server
+### 1. Development Server
 ```bash
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Option 2: Production Build & Preview
+### 2. Production Build & Preview
 ```bash
 npm run build
 npm run preview
 ```
 
-### Option 3: Direct Static File Preview
-The `dist/` folder contains the compiled static HTML, CSS, JS, and assets. You can serve it with any static server:
+---
+
+## 🌐 Deployment to GitHub and Vercel
+
+### Step 1: Push to GitHub
+The project is already connected to your GitHub repository:
 ```bash
-npx serve dist
+git add .
+git commit -m "feat: complete contact redesign, custom HTML email, and Vercel deployment configuration"
+git push -u origin master
 ```
+
+### Step 2: Deploy on Vercel
+1. Go to [vercel.com](https://vercel.com) and log in with your GitHub account.
+2. Click **"Add New..."** → **"Project"**.
+3. Select your repository: **`RAIZA-ROCES-PORTFOLIO`**.
+4. In the Project Configuration:
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+5. Click **"Deploy"**. Vercel will build and deploy your portfolio to a live production URL (e.g. `https://raiza-roces-portfolio.vercel.app`).
 
 ---
 
-## 🌐 Deploying to GitHub Pages
+## 🔑 Email Provider Configuration (Resend & Vercel)
 
-1. Push your code to GitHub:
-   ```bash
-   git add .
-   git commit -m "feat: complete React portfolio with custom preferences"
-   git remote add origin https://github.com/raizaroces/portfolio.git
-   git branch -M main
-   git push -u origin main
-   ```
-2. In GitHub repository settings, navigate to **Pages** and set the source to deploy from the `dist` folder or use GitHub Actions for automated Vite deployments.
+For production email delivery using the custom HTML template:
+
+### 1. Obtain a Free Resend API Key
+1. Sign up at [resend.com](https://resend.com) (free tier includes 3,000 emails/month).
+2. Go to **API Keys** → click **Create API Key**.
+3. Copy your key (starts with `re_...`).
+
+### 2. Configure Environment Variables in Vercel
+1. In your Vercel Dashboard, go to your project → **Settings** → **Environment Variables**.
+2. Add the following variables:
+
+| Variable Name | Value | Description |
+|---|---|---|
+| `RESEND_API_KEY` | `re_your_api_key_here` | Your secret API key from Resend |
+| `CONTACT_EMAIL` | `raizaroces2800@gmail.com` | Where you want to receive form submissions |
+| `SENDER_EMAIL` | `Raiza Roces Portfolio <onboarding@resend.dev>` | Default free sender address or your verified domain |
+
+3. Click **Save** and trigger a **Redeploy** on Vercel.
+
+### 3. Optional: Custom Domain DNS Setup (for custom sender email)
+If you own a custom domain (e.g. `raizaroces.dev`):
+1. In Resend, go to **Domains** → **Add Domain**.
+2. Add the provided **MX**, **TXT (SPF)**, and **CNAME (DKIM)** records to your domain DNS provider.
+3. Update `SENDER_EMAIL` in Vercel to `contact@raizaroces.dev`.
+
+*(Note: If you do not have a custom domain, `onboarding@resend.dev` delivers directly to `raizaroces2800@gmail.com` without any DNS configuration!)*
 
 ---
 
