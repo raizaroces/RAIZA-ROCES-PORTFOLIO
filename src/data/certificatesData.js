@@ -335,13 +335,13 @@ export const certificatesData = [
     date: "August 23, 2026",
     isoDate: "2026-08-23",
     category: "IT Infrastructure",
-    description: "Standardized international ICT practical competency exam. Achieved high-percentile scores in Data Management (89.0%), System Architecture (86.7%), Information Security (82.4%), and Technical IT Business & Ethics.",
+    description: "Internationally recognized diagnostic competency evaluation administered by the Institute for Information & Communications Technology Promotion (IITP). Validates applied proficiency in software architecture, database management, network security, and practical IT engineering standards at Level 3 Practitioner qualification.",
     items: [
       {
-        subTitle: "Official Competency Certificate (Score: 649 / 1,000 • Level 3)",
+        subTitle: "Verified Competency Credential (Level 3 Practitioner)",
         previewImage: "assets/certificates/previews/topcit_level3.png",
-        documentUrl: "assets/certificates/TOPCIT_.pdf",
-        type: "pdf",
+        documentUrl: "assets/certificates/previews/topcit_level3_verified.png",
+        type: "image",
         date: "August 23, 2026 (Test Date: Dec 10, 2025)",
         certId: "TL2506004034",
         issuer: "President of IITP (Institute for Information & Communications Technology Promotion)"
