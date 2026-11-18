@@ -102,7 +102,7 @@ export default function Hero({ onOpenResume }) {
         </div>
 
         {/* Quick Highlights Bar (No location, no President's Lister) */}
-        <div className="hero-highlights-strip" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+        <div className="hero-highlights-strip">
           <div className="highlight-card">
             <div className="highlight-icon-box">
               <Code size={24} />
