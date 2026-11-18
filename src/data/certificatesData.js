@@ -228,7 +228,7 @@ export const certificatesData = [
       {
         subTitle: "Credential 1: Cisco Networking Academy Course Completion",
         previewImage: "assets/certificates/previews/cisco_networking.png",
-        documentUrl: "assets/certificates/CISCO/Networking Basics Cerificate.pdf",
+        documentUrl: "assets/certificates/CISCO/Networking Basics Certificate.pdf",
         type: "pdf",
         date: "September 28, 2026",
         issuer: "Lynn Bloomer, Director, Cisco Networking Academy"
