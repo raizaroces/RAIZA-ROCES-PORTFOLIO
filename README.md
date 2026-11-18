@@ -2,22 +2,23 @@
 
 ![Raiza A. Roces Portfolio Preview](assets/images/profile/MY_PIC.png)
 
-A modern, elegant, responsive, and accessible personal portfolio website built for **Raiza A. Roces**, 4th-year Bachelor of Science in Information Technology student and President's Lister at Pamantasan ng Lungsod ng Pasig.
+A modern, elegant, responsive, and accessible personal portfolio website built with **React.js** and **Vite** for **Raiza A. Roces**, Bachelor of Science in Information Technology student at Pamantasan ng Lungsod ng Pasig.
 
 ---
 
 ## 🌟 Highlights & Key Features
 
 - **Personal Profile & Hero Section**:
-  - Showcases official profile portrait (`MY_PIC.png`) with ambient glow effects and floating specialization badges.
-  - Compelling professional summary directly aligned with verified qualifications and academic achievements.
+  - Showcases official profile portrait (`MY_PIC.png`) with ambient glow effects and clean, modern presentation.
+  - Professional title: **Web and Mobile Application Developer**.
+  - Degree label: **Bachelor of Science in Information Technology**.
   - Prominent **"VIEW MY RESUME"** button and quick navigation to all featured projects.
 
 - **Authentic Resume & Credentials Integration**:
   - Interactive modal PDF viewer embedding the original `Roces, Raiza A. - Resume.pdf`.
   - Direct **"Download Resume (PDF)"** option for recruiters and hiring managers.
-  - Tabbed credentials showcase featuring all **16 verified professional certifications** (PhilDev, Google Cloud, Cisco, AWS, DataCamp, Alibaba Cloud, TESDA).
-  - Detailed Education timeline (PLP President's Lister, Taytay SHS Honors) and Work Immersion experience at Taytay Municipal Hall.
+  - Tabbed credentials showcase featuring all **16 verified professional certifications** (PhilDev, Google Cloud, Cisco, AWS Training, DataCamp, Alibaba Cloud, TESDA).
+  - Detailed Education timeline (Pamantasan ng Lungsod ng Pasig, Taytay Senior High School, Arellano University) and Work Immersion experience at Taytay Municipal Hall.
 
 - **Verified Technical Skills Directory**:
   - Categorized into:
@@ -47,13 +48,13 @@ A modern, elegant, responsive, and accessible personal portfolio website built f
   - Directly connected to Raiza's email: `raizaroces2800@gmail.com` via secure FormSubmit AJAX integration.
   - Full client-side input validation (Name, Email format, Subject, Message).
   - Real-time success and error notifications with direct `mailto:` fallback.
-  - Clickable contact links (`mailto:`, `tel:`), plus verified GitHub and LinkedIn profiles.
+  - Clickable contact links (`mailto:`), plus verified GitHub and LinkedIn profiles (no phone number or home address displayed).
 
 - **Design System & Responsive Architecture**:
-  - Modern dark mode default with instant Dark / Light mode toggle.
+  - **Dark Mode by default** with a smooth Dark / Light mode toggle.
   - Fluid typography powered by `Plus Jakarta Sans` and `Outfit`.
-  - Zero-dependency architecture — works immediately on double-click or any static hosting service (GitHub Pages, Netlify, Vercel).
-  - Fully responsive across mobile, tablet, laptop, and ultra-wide screens.
+  - Built with **React 18 + Vite** for fast performance, smooth state transitions, and component reusability.
+  - Production build in `dist/` ready to be hosted anywhere.
 
 ---
 
@@ -61,109 +62,70 @@ A modern, elegant, responsive, and accessible personal portfolio website built f
 
 ```text
 d:\RAIZA ROCES PORTFOLIO\
-├── index.html                 # Semantic HTML5 single-page application
-├── README.md                  # Comprehensive documentation
+├── index.html                 # Vite HTML entrypoint
+├── package.json               # Dependencies and scripts (React 18, Vite, Lucide)
+├── vite.config.js             # Vite configuration with relative base path
+├── src\
+│   ├── main.jsx               # React DOM entrypoint
+│   ├── App.jsx                # Main application component & global state
+│   ├── components\
+│   │   ├── Navbar.jsx         # Sticky glassmorphic navbar with theme toggle
+│   │   ├── Hero.jsx           # Hero banner with profile picture & CTAs
+│   │   ├── About.jsx          # Professional bio & educational background
+│   │   ├── Skills.jsx         # Categorized verified skills with filter chips
+│   │   ├── Projects.jsx       # 7 verified projects grid
+│   │   ├── ProjectCard.jsx    # Card component with [MAIN] thumbnail & actions
+│   │   ├── LightboxModal.jsx  # Interactive screenshot gallery lightbox
+│   │   ├── Resume.jsx         # Resume credentials & tabs
+│   │   ├── ResumeModal.jsx    # Fullscreen embedded PDF resume viewer
+│   │   ├── Contact.jsx        # Functional AJAX contact form (FormSubmit)
+│   │   ├── Footer.jsx         # Clean footer
+│   │   └── Icons.jsx          # Vector social icons (GitHub, LinkedIn)
+│   └── data\
+│       ├── projectsData.js    # Verified projects data & screenshot paths
+│       └── resumeData.js      # 16 certifications & education timeline
 ├── css\
-│   └── style.css              # Custom responsive stylesheet & design system
-├── js\
-│   └── main.js                # Core logic (projects data, filters, lightbox, resume modal, contact AJAX)
-└── assets\
-    ├── docs\
-    │   └── Roces, Raiza A. - Resume.pdf       # Authentic uploaded resume
-    └── images\
-        ├── profile\
-        │   └── MY_PIC.png                     # Official profile picture
-        └── projects\
-            ├── age-converter\
-            │   └── [MAIN]  Landing.jpg
-            ├── balik-belongings\
-            │   ├── [MAIN] BALIK-BELONGINGS LANDING PAGE.png
-            │   ├── Admin and Staff Item Inventory Interface.png
-            │   ├── Admin Dashboard Interface.png
-            │   ├── Automated Tagging Generating Details.png
-            │   ├── Check ticket status.png
-            │   ├── Intelligent Matching Interface.png
-            │   ├── Match Analysis Interface.png
-            │   ├── PDF OR CSV Export Generation.png
-            │   └── Report a lost item.png
-            ├── capstone-hte\
-            │   ├── [MAIN]  LANDING PAGE.png
-            │   ├── ADMINISTRATOR DASHBOARD.png
-            │   ├── COORDINATOR DASHBOARD.png
-            │   ├── NOTIFICATION.png
-            │   ├── STUDENT ATTENDANCE.png
-            │   ├── STUDENT DASHOARD.png
-            │   ├── SUBMIT TASK.png
-            │   └── TRAINEE DEPLOYMENT.png
-            ├── document-management\
-            │   ├── [MAIN]  Admin_Dashboard.png
-            │   ├── Categories.png
-            │   ├── Create_Workspace.png
-            │   ├── Expanded Categories.png
-            │   ├── File Preview and Editing.png
-            │   ├── File Sharing.png
-            │   ├── File Upload and Storage.png
-            │   ├── Library.png
-            │   ├── login.png
-            │   ├── Upload_Files.png
-            │   └── Workspaces.png
-            ├── java-rice\
-            │   ├── [MAIN] Landing.jpg
-            │   ├── Cart total.jpg
-            │   ├── Menu.jpg
-            │   ├── Payment_.jpg
-            │   └── Product details.jpg
-            ├── solar-system\
-            │   └── [MAIN] Landing.jpg
-            └── student-violation\
-                ├── [MAIN] STUDENT DASHBOARD.jfif
-                ├── ADMIN DASHBOARD.png
-                ├── Admin settings.png
-                ├── Admin Student Violation.png
-                ├── Admin Violations.png
-                ├── E-signature Feature.png
-                ├── Forecasting and Prediction Analytics.png
-                ├── LOGIN.png
-                ├── Student Offenses List.png
-                └── Student Violations.png
+│   └── style.css              # Custom styling & dark/light theme variables
+├── public\
+│   └── assets\                # Static public assets (images, screenshots, resume PDF)
+└── dist\                      # Optimized production build (deployable static files)
 ```
 
 ---
 
 ## 🚀 How to Run Locally
 
-You can run this portfolio in seconds:
-
-### Option 1: Directly in Browser
-Double-click `index.html` or open it with your browser of choice (Chrome, Edge, Firefox, Safari).
-
-### Option 2: Using VS Code Live Server
-1. Open the `d:\RAIZA ROCES PORTFOLIO` folder in Visual Studio Code.
-2. Click **Go Live** on the bottom right corner (or right-click `index.html` → *Open with Live Server*).
-
-### Option 3: Using Node / npx serve
+### Option 1: Development Server
 ```bash
-npx serve .
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Option 2: Production Build & Preview
+```bash
+npm run build
+npm run preview
+```
+
+### Option 3: Direct Static File Preview
+The `dist/` folder contains the compiled static HTML, CSS, JS, and assets. You can serve it with any static server:
+```bash
+npx serve dist
 ```
 
 ---
 
 ## 🌐 Deploying to GitHub Pages
 
-1. Initialize a git repository in the portfolio folder (if not already done):
+1. Push your code to GitHub:
    ```bash
-   git init
    git add .
-   git commit -m "Initial commit of professional portfolio"
-   ```
-2. Create a repository on GitHub (e.g. `raizaroces.github.io` or `portfolio`).
-3. Push to GitHub:
-   ```bash
+   git commit -m "feat: complete React portfolio with custom preferences"
    git remote add origin https://github.com/raizaroces/portfolio.git
    git branch -M main
    git push -u origin main
    ```
-4. In your GitHub repository settings, go to **Pages**, select the `main` branch, and click **Save**. Your site will be live across the world!
+2. In GitHub repository settings, navigate to **Pages** and set the source to deploy from the `dist` folder or use GitHub Actions for automated Vite deployments.
 
 ---
 
@@ -171,7 +133,5 @@ npx serve .
 
 - **Name**: Raiza A. Roces
 - **Email**: [raizaroces2800@gmail.com](mailto:raizaroces2800@gmail.com)
-- **Phone**: [+63 976 302 0844](tel:09763020844)
-- **Location**: Santa Ana, Taytay, Rizal, Philippines
 - **LinkedIn**: [linkedin.com/in/raizaroces](https://www.linkedin.com/in/raizaroces)
 - **GitHub**: [github.com/raizaroces](https://github.com/raizaroces)
