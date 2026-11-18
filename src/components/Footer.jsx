@@ -11,7 +11,7 @@ export default function Footer() {
               <span className="brand-name">Raiza A. Roces</span>
             </div>
             <p className="footer-desc">
-              4th-year Bachelor of Science in Information Technology student at Pamantasan ng Lungsod ng Pasig. Passionate about engineering dependable web applications, mobile platforms, and AI-enabled software solutions.
+              4th-year Bachelor of Science in Information Technology student at Pamantasan ng Lungsod ng Pasig. Passionate about web applications, mobile platforms, and AI-enabled software solutions.
             </p>
           </div>
 

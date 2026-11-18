@@ -13,9 +13,14 @@ import ResumeModal from './components/ResumeModal';
 import '../css/style.css';
 
 export default function App() {
-  // 1. Dark Mode Default (saved in localStorage if user toggles)
+  // 1. Dark Mode Default (always opens in dark mode; session-preserved when toggled)
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'dark';
+    try {
+      localStorage.removeItem('portfolio-theme');
+      return sessionStorage.getItem('portfolio-theme') || 'dark';
+    } catch {
+      return 'dark';
+    }
   });
 
   const [lightboxProject, setLightboxProject] = useState(null);
@@ -27,7 +32,9 @@ export default function App() {
   // Synchronize data-theme attribute on documentElement
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('portfolio-theme', theme);
+    try {
+      sessionStorage.setItem('portfolio-theme', theme);
+    } catch {}
   }, [theme]);
 
   // Back to top scroll listener

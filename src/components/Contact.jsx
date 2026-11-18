@@ -214,7 +214,7 @@ export default function Contact({ onShowToast }) {
                   <GithubIcon size={22} />
                 </div>
                 <div className="contact-card-text">
-                  <span className="contact-label">GitHub Repository</span>
+                  <span className="contact-label">GitHub</span>
                   <span className="contact-value">github.com/raizaroces</span>
                 </div>
               </a>
