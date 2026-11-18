@@ -340,8 +340,8 @@ export const certificatesData = [
       {
         subTitle: "Verified Competency Credential (Level 3 Practitioner)",
         previewImage: "assets/certificates/previews/topcit_level3.png",
-        documentUrl: "assets/certificates/previews/topcit_level3_verified.png",
-        type: "image",
+        documentUrl: "assets/certificates/TOPCIT_Level3_Certification.pdf",
+        type: "pdf",
         date: "August 23, 2026 (Test Date: Dec 10, 2025)",
         certId: "TL2506004034",
         issuer: "President of IITP (Institute for Information & Communications Technology Promotion)"
