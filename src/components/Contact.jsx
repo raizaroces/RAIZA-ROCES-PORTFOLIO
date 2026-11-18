@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle, AlertCircle, Loader } from 'lucide-react';
+import { Mail, Send, CheckCircle, AlertCircle, Loader, ExternalLink } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
 export default function Contact({ onShowToast }) {
@@ -11,10 +11,25 @@ export default function Contact({ onShowToast }) {
   });
 
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null); // { type: 'success' | 'error', message: string, mailtoFallback?: string }
+  const [status, setStatus] = useState(null); // { type: 'success' | 'warning' | 'error', message: string, mailtoFallback?: string }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Direct Mailto helper that pre-populates email app
+  const handleDirectEmail = () => {
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const subject = formData.subject.trim() || 'Portfolio Inquiry';
+    const message = formData.message.trim();
+
+    const bodyText = `Hi Raiza,\n\n${message || '[Your message here]'}\n\nBest regards,\n${name || 'A Visitor'} ${email ? `(${email})` : ''}`;
+    const mailtoUrl = `mailto:raizaroces2800@gmail.com?subject=${encodeURIComponent(
+      `[Portfolio] ${subject}`
+    )}&body=${encodeURIComponent(bodyText)}`;
+
+    window.location.href = mailtoUrl;
   };
 
   const handleSubmit = async (e) => {
@@ -59,6 +74,20 @@ export default function Contact({ onShowToast }) {
       return;
     }
 
+    // Check if opened as raw file://
+    if (window.location.protocol === 'file:') {
+      const fallbackUrl = `mailto:raizaroces2800@gmail.com?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(`Hi Raiza,\n\n${message}\n\nFrom: ${name} (${email})`)}`;
+      setStatus({
+        type: 'warning',
+        message:
+          'You are browsing as a local HTML file (file://). FormSubmit requires a live web server (e.g. npm run dev or deployed site).',
+        mailtoFallback: fallbackUrl
+      });
+      return;
+    }
+
     // 2. Submit via FormSubmit AJAX to raizaroces2800@gmail.com
     setLoading(true);
     setStatus(null);
@@ -75,13 +104,22 @@ export default function Contact({ onShowToast }) {
           email: email,
           _subject: `[Portfolio Contact] ${subject} - From ${name}`,
           message: message,
+          _captcha: 'false',
           _template: 'table'
         })
       });
 
       const result = await response.json();
 
-      if (response.ok && (result.success === 'true' || result.success === true)) {
+      // Check if FormSubmit requires initial one-time activation
+      if (result.message && result.message.toLowerCase().includes('activation')) {
+        setStatus({
+          type: 'warning',
+          message:
+            "Form submitted! FormSubmit has sent a one-time activation link to raizaroces2800@gmail.com. Please open your Gmail inbox and click 'Activate Form' to activate your endpoint. All future messages will then arrive instantly!"
+        });
+        if (onShowToast) onShowToast('One-time activation email sent!', 'toast-success');
+      } else if (response.ok && (result.success === 'true' || result.success === true)) {
         setStatus({
           type: 'success',
           message:
@@ -99,7 +137,7 @@ export default function Contact({ onShowToast }) {
       )}&body=${encodeURIComponent(`Hi Raiza,\n\n${message}\n\nFrom: ${name} (${email})`)}`;
       setStatus({
         type: 'error',
-        message: 'Could not automatically dispatch email.',
+        message: 'Could not automatically dispatch email via web server.',
         mailtoFallback: fallbackUrl
       });
       if (onShowToast) onShowToast('Network error. Please use direct email.', 'toast-error');
@@ -124,7 +162,7 @@ export default function Contact({ onShowToast }) {
 
         <div className="contact-grid">
           
-          {/* Left: Contact Info Cards (No location, no mobile number) */}
+          {/* Left: Contact Info Cards */}
           <div className="contact-info-panel">
             <div>
               <h3 className="contact-panel-title">Let's Connect</h3>
@@ -135,13 +173,13 @@ export default function Contact({ onShowToast }) {
 
             <div className="contact-cards-list">
               
-              {/* Email */}
+              {/* Direct Clickable Email Link */}
               <a href="mailto:raizaroces2800@gmail.com" className="contact-card-item">
                 <div className="contact-icon-box">
                   <Mail size={22} />
                 </div>
                 <div className="contact-card-text">
-                  <span className="contact-label">Email Address</span>
+                  <span className="contact-label">Email Address (Click to Open)</span>
                   <span className="contact-value">raizaroces2800@gmail.com</span>
                 </div>
               </a>
@@ -189,7 +227,18 @@ export default function Contact({ onShowToast }) {
               {status && (
                 <div
                   className={`form-status-alert ${status.type}`}
-                  style={{ display: 'flex' }}
+                  style={{
+                    display: 'flex',
+                    background:
+                      status.type === 'warning'
+                        ? 'rgba(245, 158, 11, 0.12)'
+                        : undefined,
+                    border:
+                      status.type === 'warning'
+                        ? '1px solid rgba(245, 158, 11, 0.35)'
+                        : undefined,
+                    color: status.type === 'warning' ? '#fbbf24' : undefined
+                  }}
                   role="alert"
                 >
                   {status.type === 'success' ? (
@@ -200,12 +249,14 @@ export default function Contact({ onShowToast }) {
                   <div>
                     <span>{status.message} </span>
                     {status.mailtoFallback && (
-                      <a
-                        href={status.mailtoFallback}
-                        style={{ textDecoration: 'underline', fontWeight: 700, color: 'inherit' }}
-                      >
-                        Click here to send directly via email client.
-                      </a>
+                      <div style={{ marginTop: '0.4rem' }}>
+                        <a
+                          href={status.mailtoFallback}
+                          style={{ textDecoration: 'underline', fontWeight: 700, color: 'inherit' }}
+                        >
+                          Click here to send directly via your email app (Gmail / Outlook) →
+                        </a>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -276,25 +327,38 @@ export default function Contact({ onShowToast }) {
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                className="btn btn-primary"
-                id="contact-submit-btn"
-                style={{ width: '100%' }}
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <Loader size={18} style={{ animation: 'spin 1s linear infinite' }} />
-                    <span>Sending Message...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={18} />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  id="contact-submit-btn"
+                  style={{ width: '100%' }}
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <Loader size={18} style={{ animation: 'spin 1s linear infinite' }} />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={18} />
+                      <span>Send Message (Web Form)</span>
+                    </>
+                  )}
+                </button>
+
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleDirectEmail}
+                  title="Open your device's email client with pre-filled details"
+                  style={{ width: '100%' }}
+                >
+                  <ExternalLink size={16} />
+                  <span>Send via Email Client (Direct Mailto)</span>
+                </button>
+              </div>
             </form>
           </div>
 
