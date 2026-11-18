@@ -1,9 +1,29 @@
-import React, { useState } from 'react';
-import { Eye, Download, Award, Briefcase, GraduationCap } from 'lucide-react';
-import { certificationsData, educationData, experienceData } from '../data/resumeData';
+import React, { useState, useMemo } from 'react';
+import { Eye, Download, Award, Briefcase, GraduationCap, Search, ExternalLink, ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
+import { educationData, experienceData } from '../data/resumeData';
+import { certificatesData } from '../data/certificatesData';
+import CertificateModal from './CertificateModal';
 
 export default function Resume({ onOpenResume }) {
   const [activeTab, setActiveTab] = useState('certs');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCertificate, setActiveCertificate] = useState(null);
+
+  const categories = ['All', 'Cloud & DevOps', 'AI & Machine Learning', 'IT Infrastructure', 'Professional & Specialization'];
+
+  const filteredCertificates = useMemo(() => {
+    return certificatesData.filter((cert) => {
+      const matchesCategory = selectedCategory === 'All' || cert.category === selectedCategory;
+      const q = searchQuery.toLowerCase().trim();
+      const matchesSearch =
+        !q ||
+        cert.title.toLowerCase().includes(q) ||
+        cert.issuer.toLowerCase().includes(q) ||
+        (cert.certId && cert.certId.toLowerCase().includes(q));
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
 
   return (
     <section className="section resume-section-wrapper" id="resume">
@@ -15,7 +35,7 @@ export default function Resume({ onOpenResume }) {
             Resume &amp; <span className="gradient-text">Credentials</span>
           </h2>
           <p className="section-subtitle">
-            Inspect my authentic resume document directly from the portfolio or download a clean PDF copy for your records.
+            Inspect my authentic resume document and verified credentials directly from the portfolio or download clean copies for your records.
           </p>
         </div>
 
@@ -58,7 +78,7 @@ export default function Resume({ onOpenResume }) {
             onClick={() => setActiveTab('certs')}
           >
             <Award size={18} />
-            <span>Certifications (16)</span>
+            <span>Certificates &amp; Credentials ({certificatesData.length})</span>
           </button>
 
           <button
@@ -67,7 +87,7 @@ export default function Resume({ onOpenResume }) {
             onClick={() => setActiveTab('experience')}
           >
             <Briefcase size={18} />
-            <span>Work Immersion &amp; Office Experience</span>
+            <span>Work Immersion &amp; Experience</span>
           </button>
 
           <button
@@ -80,27 +100,162 @@ export default function Resume({ onOpenResume }) {
           </button>
         </div>
 
-        {/* Tab 1: Certifications */}
+        {/* Tab 1: Certificates & Credentials Gallery */}
         {activeTab === 'certs' && (
           <div className="resume-tab-content active">
-            <div className="certs-grid">
-              {certificationsData.map((cert, idx) => (
-                <div key={idx} className="cert-card">
-                  <div className="cert-icon-wrapper">
-                    <Award size={20} />
-                  </div>
-                  <div className="cert-info">
-                    <h4 className="cert-title">{cert.title}</h4>
-                    <span className="cert-issuer">{cert.issuer}</span>
-                    <span className="cert-date">{cert.date}</span>
-                  </div>
-                </div>
-              ))}
+            
+            {/* Gallery Controls: Filter Pills & Search */}
+            <div className="cert-gallery-controls">
+              <div className="cert-filter-pills">
+                {categories.map((cat) => {
+                  const count = cat === 'All'
+                    ? certificatesData.length
+                    : certificatesData.filter((c) => c.category === cat).length;
+                  return (
+                    <button
+                      key={cat}
+                      type="button"
+                      className={`filter-btn ${selectedCategory === cat ? 'active' : ''}`}
+                      onClick={() => setSelectedCategory(cat)}
+                    >
+                      <span>{cat}</span>
+                      <span className="filter-count-badge">{count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="cert-search-box">
+                <Search size={16} className="search-icon" />
+                <input
+                  type="text"
+                  placeholder="Search certificates, skills, or issuers..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="cert-search-input"
+                  aria-label="Search certificates"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    className="search-clear-btn"
+                    onClick={() => setSearchQuery('')}
+                    aria-label="Clear search"
+                  >
+                    &times;
+                  </button>
+                )}
+              </div>
             </div>
+
+            {/* Gallery Grid */}
+            {filteredCertificates.length > 0 ? (
+              <div className="cert-gallery-grid">
+                {filteredCertificates.map((cert) => (
+                  <article key={cert.id} className="cert-gallery-card">
+                    
+                    {/* Visual Preview */}
+                    <div
+                      className="cert-card-preview-wrapper"
+                      onClick={() => setActiveCertificate(cert)}
+                    >
+                      <img
+                        src={cert.previewImage}
+                        alt={cert.title}
+                        className="cert-card-image"
+                        loading="lazy"
+                      />
+                      <div className="cert-card-overlay">
+                        <span className="btn-view-preview">
+                          <Eye size={18} />
+                          <span>View Certificate</span>
+                        </span>
+                      </div>
+                      <span className="cert-type-pill">
+                        {cert.type === 'pdf' ? (
+                          <>
+                            <FileText size={12} />
+                            <span>PDF Document</span>
+                          </>
+                        ) : (
+                          <>
+                            <CheckCircle2 size={12} />
+                            <span>Verified Badge</span>
+                          </>
+                        )}
+                      </span>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="cert-card-body">
+                      <div className="cert-card-meta">
+                        <span className="cert-badge-category">{cert.category}</span>
+                        <span className="cert-badge-date">{cert.date}</span>
+                      </div>
+
+                      <h4 className="cert-card-title" title={cert.title}>
+                        {cert.title}
+                      </h4>
+
+                      <p className="cert-card-issuer">
+                        <Award size={14} className="cert-issuer-icon" />
+                        <span>{cert.issuer}</span>
+                      </p>
+
+                      {cert.certId && (
+                        <div className="cert-card-id" title={`Credential ID: ${cert.certId}`}>
+                          <ShieldCheck size={13} />
+                          <span>{cert.certId}</span>
+                        </div>
+                      )}
+
+                      {/* Card Action Buttons */}
+                      <div className="cert-card-actions">
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-sm btn-view-cert"
+                          onClick={() => setActiveCertificate(cert)}
+                        >
+                          <Eye size={15} />
+                          <span>View Certificate</span>
+                        </button>
+
+                        <a
+                          href={cert.documentUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-secondary btn-sm btn-icon-only"
+                          title="Open original certificate file"
+                          aria-label={`Open ${cert.title} file in new tab`}
+                        >
+                          <ExternalLink size={15} />
+                        </a>
+                      </div>
+                    </div>
+
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div className="cert-no-results">
+                <p>No certificates found matching "{searchQuery}" in "{selectedCategory}".</p>
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  onClick={() => {
+                    setSelectedCategory('All');
+                    setSearchQuery('');
+                  }}
+                >
+                  Reset Filters
+                </button>
+              </div>
+            )}
+
           </div>
         )}
 
-        {/* Tab 2: Work Experience / Immersion */}
+        {/* Tab 2: Work Immersion / Experience */}
         {activeTab === 'experience' && (
           <div className="resume-tab-content active">
             <div className="timeline-list">
@@ -155,6 +310,13 @@ export default function Resume({ onOpenResume }) {
         )}
 
       </div>
+
+      {/* Certificate Viewer Modal */}
+      <CertificateModal
+        certificate={activeCertificate}
+        isOpen={Boolean(activeCertificate)}
+        onClose={() => setActiveCertificate(null)}
+      />
     </section>
   );
 }
