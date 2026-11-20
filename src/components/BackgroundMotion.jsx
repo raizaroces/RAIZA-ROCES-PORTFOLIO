@@ -4,11 +4,12 @@ import React, { useMemo } from 'react';
  * BackgroundMotion component
  * Adds subtle, elegant motion objects:
  * - Ambient floating gradient orbs
+ * - Celestial constellation patterns with pulsing star nodes and glowing geometric lines
  * - Twinkling stars of varying sizes, opacities, and animation cadences
  * - Rotating 4-point sparkle cross stars
- * - Staggered occasional shooting stars / meteors
+ * - Slower, majestic falling meteors
  *
- * Designed with pure CSS GPU-accelerated transforms, zero layout shifts,
+ * Built with pure GPU-accelerated CSS transforms, zero layout shifts,
  * full responsiveness, and non-blocking pointer events.
  */
 export default function BackgroundMotion({ theme = 'dark' }) {
@@ -31,7 +32,7 @@ export default function BackgroundMotion({ theme = 'dark' }) {
       const duration = 2.4 + (i % 6) * 1.1; // 2.4s to 7.9s
       const delay = ((i % 8) * 0.7);
       const color = colors[i % colors.length];
-      const isMobileHidden = i > 28; // Keep only top 28 stars on small mobile screens
+      const isMobileHidden = i > 28; // Keep 28 stars on small mobile screens
 
       list.push({ id: i, left, top, size, duration, delay, color, isMobileHidden });
     }
@@ -47,11 +48,10 @@ export default function BackgroundMotion({ theme = 'dark' }) {
     { id: 'sp-5', left: '52%', top: '38%', size: 14, duration: 6.2, delay: 4.5, color: '#ffffff' },
   ], []);
 
-  // Shooting meteors
+  // Slower, graceful shooting meteors (takes ~3.5-4s to glide across)
   const meteors = useMemo(() => [
-    { id: 'm-1', top: '12%', left: '72%', duration: 9, delay: 2 },
-    { id: 'm-2', top: '32%', left: '88%', duration: 13, delay: 6 },
-    { id: 'm-3', top: '8%', left: '42%', duration: 16, delay: 10 },
+    { id: 'm-1', top: '10%', left: '70%', duration: 15, delay: 3 },
+    { id: 'm-2', top: '26%', left: '85%', duration: 18, delay: 10 },
   ], []);
 
   return (
@@ -61,7 +61,74 @@ export default function BackgroundMotion({ theme = 'dark' }) {
       <div className="bg-motion-orb bg-motion-orb-2" />
       <div className="bg-motion-orb bg-motion-orb-3" />
 
-      {/* 2. Twinkling Stars Layer */}
+      {/* 2. Constellation Patterns */}
+      <div className="bg-constellations-layer">
+        {/* Constellation 1: Top-Left (Cassiopeia / Tech Geometry) */}
+        <svg className="bg-constellation bg-constellation-1" viewBox="0 0 280 180" fill="none">
+          <polyline
+            points="30,130 85,45 155,105 215,35 260,75"
+            className="constellation-line"
+          />
+          <line x1="155" y1="105" x2="260" y2="75" className="constellation-line" />
+          {[
+            { cx: 30, cy: 130, r: 3.5 },
+            { cx: 85, cy: 45, r: 4 },
+            { cx: 155, cy: 105, r: 3.5 },
+            { cx: 215, cy: 35, r: 4.5 },
+            { cx: 260, cy: 75, r: 3.5 },
+          ].map((node, idx) => (
+            <g key={idx} className="constellation-node">
+              <circle cx={node.cx} cy={node.cy} r={node.r + 3} className="constellation-pulse-ring" />
+              <circle cx={node.cx} cy={node.cy} r={node.r} className="constellation-star" />
+            </g>
+          ))}
+        </svg>
+
+        {/* Constellation 2: Bottom-Right (Geometric Shield / Diamond) */}
+        <svg className="bg-constellation bg-constellation-2" viewBox="0 0 260 200" fill="none">
+          <polygon
+            points="50,45 150,20 230,85 175,175 70,150"
+            className="constellation-line"
+          />
+          <line x1="150" y1="20" x2="175" y2="175" className="constellation-line" />
+          <line x1="50" y1="45" x2="230" y2="85" className="constellation-line" />
+          {[
+            { cx: 50, cy: 45, r: 3.5 },
+            { cx: 150, cy: 20, r: 4.5 },
+            { cx: 230, cy: 85, r: 3.5 },
+            { cx: 175, cy: 175, r: 4 },
+            { cx: 70, cy: 150, r: 3 },
+          ].map((node, idx) => (
+            <g key={idx} className="constellation-node">
+              <circle cx={node.cx} cy={node.cy} r={node.r + 3} className="constellation-pulse-ring" />
+              <circle cx={node.cx} cy={node.cy} r={node.r} className="constellation-star" />
+            </g>
+          ))}
+        </svg>
+
+        {/* Constellation 3: Mid-Left (Triangulum / Tech Web) */}
+        <svg className="bg-constellation bg-constellation-3" viewBox="0 0 220 160" fill="none">
+          <polygon
+            points="30,30 110,65 190,40 145,130 65,115"
+            className="constellation-line"
+          />
+          <line x1="110" y1="65" x2="145" y2="130" className="constellation-line" />
+          {[
+            { cx: 30, cy: 30, r: 3.5 },
+            { cx: 110, cy: 65, r: 4 },
+            { cx: 190, cy: 40, r: 3.5 },
+            { cx: 145, cy: 130, r: 4.5 },
+            { cx: 65, cy: 115, r: 3 },
+          ].map((node, idx) => (
+            <g key={idx} className="constellation-node">
+              <circle cx={node.cx} cy={node.cy} r={node.r + 3} className="constellation-pulse-ring" />
+              <circle cx={node.cx} cy={node.cy} r={node.r} className="constellation-star" />
+            </g>
+          ))}
+        </svg>
+      </div>
+
+      {/* 3. Twinkling Stars Layer */}
       <div className="bg-stars-layer">
         {stars.map((s) => (
           <span
@@ -81,7 +148,7 @@ export default function BackgroundMotion({ theme = 'dark' }) {
         ))}
       </div>
 
-      {/* 3. 4-Point Sparkle Crosses */}
+      {/* 4. 4-Point Sparkle Crosses */}
       <div className="bg-sparkles-layer">
         {sparkles.map((sp) => (
           <svg
@@ -104,7 +171,7 @@ export default function BackgroundMotion({ theme = 'dark' }) {
         ))}
       </div>
 
-      {/* 4. Shooting Meteors */}
+      {/* 5. Slower Shooting Meteors */}
       <div className="bg-meteors-layer">
         {meteors.map((m) => (
           <span

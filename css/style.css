@@ -3461,6 +3461,109 @@ html, body {
   100% { transform: translate3d(70px, 60px, 0) scale(0.88); }
 }
 
+/* Constellation Patterns Layer */
+.bg-constellations-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bg-constellation {
+  position: absolute;
+  pointer-events: none;
+  animation: constellationFloat 20s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+.bg-constellation-1 {
+  top: 9%;
+  left: 3.5%;
+  width: 270px;
+  height: 175px;
+  animation-duration: 24s;
+}
+
+.bg-constellation-2 {
+  bottom: 8%;
+  right: 3.5%;
+  width: 255px;
+  height: 195px;
+  animation-duration: 28s;
+  animation-delay: -6s;
+}
+
+.bg-constellation-3 {
+  top: 50%;
+  left: 2.5%;
+  width: 215px;
+  height: 155px;
+  animation-duration: 22s;
+  animation-delay: -11s;
+}
+
+@keyframes constellationFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate3d(14px, -16px, 0) rotate(1.2deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(-10px, 12px, 0) rotate(-1deg);
+    opacity: 0.6;
+  }
+}
+
+.constellation-line {
+  stroke: rgba(99, 102, 241, 0.38);
+  stroke-width: 1.25;
+  stroke-dasharray: 4 3;
+  animation: constellationLineGlow 7s ease-in-out infinite alternate;
+}
+
+@keyframes constellationLineGlow {
+  0% {
+    stroke: rgba(99, 102, 241, 0.28);
+    stroke-width: 1.1;
+  }
+  50% {
+    stroke: rgba(6, 182, 212, 0.58);
+    stroke-width: 1.4;
+    filter: drop-shadow(0 0 3px rgba(6, 182, 212, 0.5));
+  }
+  100% {
+    stroke: rgba(168, 85, 247, 0.35);
+    stroke-width: 1.1;
+  }
+}
+
+.constellation-star {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 4px #67e8f9);
+}
+
+.constellation-pulse-ring {
+  fill: none;
+  stroke: rgba(6, 182, 212, 0.45);
+  stroke-width: 1;
+  animation: nodePulse 3.8s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes nodePulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0.8;
+    stroke: rgba(99, 102, 241, 0.7);
+  }
+}
+
 /* Twinkling Stars */
 .bg-stars-layer {
   position: absolute;
@@ -3510,7 +3613,7 @@ html, body {
   }
 }
 
-/* Shooting Meteors */
+/* Slower, Majestic Shooting Meteors */
 .bg-meteors-layer {
   position: absolute;
   inset: 0;
@@ -3518,13 +3621,13 @@ html, body {
 
 .bg-meteor {
   position: absolute;
-  width: 140px;
+  width: 190px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(99, 102, 241, 0.75), rgba(6, 182, 212, 0));
-  transform: rotate(-35deg) translate3d(0, 0, 0);
+  background: linear-gradient(90deg, #ffffff 0%, rgba(99, 102, 241, 0.8) 35%, rgba(6, 182, 212, 0.45) 65%, transparent 100%);
+  transform: rotate(-32deg) translate3d(0, 0, 0);
   opacity: 0;
   border-radius: 999px;
-  filter: drop-shadow(0 0 4px #06b6d4);
+  filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.65));
   animation: shootingMeteor ease-in-out infinite;
   will-change: transform, opacity;
 }
@@ -3535,34 +3638,51 @@ html, body {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 3.5px;
-  height: 3.5px;
+  width: 4px;
+  height: 4px;
   background: #ffffff;
   border-radius: 50%;
-  box-shadow: 0 0 6px #ffffff, 0 0 12px #67e8f9;
+  box-shadow: 0 0 8px #ffffff, 0 0 16px #67e8f9;
 }
 
+/* Meteor glides gracefully over 3.5 - 4.5 seconds */
 @keyframes shootingMeteor {
   0% {
     opacity: 0;
-    transform: rotate(-35deg) translate3d(200px, -200px, 0);
+    transform: rotate(-32deg) translate3d(240px, -240px, 0);
   }
   3% {
-    opacity: 1;
+    opacity: 0.9;
   }
-  7% {
+  18% {
+    opacity: 0.9;
+  }
+  25% {
     opacity: 0;
-    transform: rotate(-35deg) translate3d(-380px, 380px, 0);
+    transform: rotate(-32deg) translate3d(-520px, 520px, 0);
   }
   100% {
     opacity: 0;
-    transform: rotate(-35deg) translate3d(-380px, 380px, 0);
+    transform: rotate(-32deg) translate3d(-520px, 520px, 0);
   }
 }
 
 /* Light Theme Adaptations */
 [data-theme="light"] .bg-motion-orb {
   opacity: 0.08;
+}
+
+[data-theme="light"] .constellation-line {
+  stroke: rgba(79, 70, 229, 0.16);
+}
+
+[data-theme="light"] .constellation-star {
+  fill: #4f46e5;
+  filter: none;
+}
+
+[data-theme="light"] .constellation-pulse-ring {
+  stroke: rgba(79, 70, 229, 0.22);
 }
 
 [data-theme="light"] .bg-star {
@@ -3583,6 +3703,23 @@ html, body {
   .bg-star-desktop-only {
     display: none !important;
   }
+  .bg-constellation-1 {
+    width: 175px;
+    height: 110px;
+    left: 2%;
+    top: 5%;
+    opacity: 0.5;
+  }
+  .bg-constellation-2 {
+    width: 175px;
+    height: 135px;
+    right: 2%;
+    bottom: 5%;
+    opacity: 0.5;
+  }
+  .bg-constellation-3 {
+    display: none;
+  }
   .bg-motion-orb-1 {
     width: 320px;
     height: 320px;
@@ -3601,7 +3738,10 @@ html, body {
   .bg-star,
   .bg-sparkle-star,
   .bg-meteor,
-  .bg-motion-orb {
+  .bg-motion-orb,
+  .bg-constellation,
+  .constellation-line,
+  .constellation-pulse-ring {
     animation: none !important;
   }
   .bg-star {
