@@ -7,7 +7,6 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="brand-logo" style={{ marginBottom: '0.5rem' }}>
-              <div className="brand-monogram">RR</div>
               <span className="brand-name">Raiza A. Roces</span>
             </div>
             <p className="footer-desc">

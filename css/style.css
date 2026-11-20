@@ -323,6 +323,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  position: relative;
 }
 
 .brand-logo {
@@ -369,6 +370,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 1.75rem;
+  margin: 0 auto;
 }
 
 .nav-link {
@@ -2658,25 +2660,72 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.75rem;
+  padding: 1.15rem 1.75rem;
   background: var(--bg-card);
   border-bottom: 1px solid var(--border-subtle);
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+.resume-modal-header-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .resume-modal-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.resume-modal-title-icon {
+  flex-shrink: 0;
+  color: var(--accent-primary);
 }
 
 .resume-modal-actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.resume-action-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 0.55rem !important;
+  padding: 0.55rem 1.25rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-sm) !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0;
+}
+
+.resume-action-btn svg {
+  flex-shrink: 0 !important;
+}
+
+.resume-action-btn span {
+  display: inline-block !important;
+  text-align: center !important;
+}
+
+.resume-modal-close {
+  display: none;
+}
+
+.resume-desktop-close {
+  display: flex;
 }
 
 .resume-iframe-container {
@@ -3100,7 +3149,39 @@ html, body {
     border-radius: var(--radius-lg);
   }
   .resume-modal-header {
-    padding: 1rem 1.25rem;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.9rem 1.15rem;
+    gap: 0.75rem;
+  }
+  .resume-modal-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .resume-modal-title {
+    font-size: 1.05rem;
+  }
+  .resume-modal-close {
+    display: flex;
+  }
+  .resume-desktop-close {
+    display: none;
+  }
+  .resume-modal-actions {
+    display: flex;
+    width: 100%;
+    gap: 0.6rem;
+  }
+  .resume-action-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.65rem 0.6rem !important;
+    font-size: 0.825rem !important;
+    gap: 0.45rem !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   /* Toast */
@@ -3238,7 +3319,9 @@ html, body {
     padding: 1rem;
   }
 
-  .resume-modal-actions .btn span {
-    display: none; /* icon-only on tiny screens */
+  .resume-action-btn {
+    padding: 0.5rem 0.35rem !important;
+    font-size: 0.76rem !important;
+    gap: 0.35rem !important;
   }
 }

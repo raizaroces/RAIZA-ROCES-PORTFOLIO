@@ -42,14 +42,6 @@ export default function Navbar({ theme, toggleTheme, onOpenResume }) {
     <>
       <header className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
         <div className="container nav-container">
-          <a href="#home" className="brand-logo" aria-label="Raiza Roces Home">
-            <div className="brand-monogram">RR</div>
-            <div className="brand-text">
-              <span className="brand-name">Raiza Roces</span>
-              <span className="brand-role">Bachelor of Science in Information Technology</span>
-            </div>
-          </a>
-
           {/* Desktop Nav Links */}
           <nav className="nav-links" aria-label="Main Navigation">
             {navLinks.map((link) => (

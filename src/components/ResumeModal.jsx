@@ -38,35 +38,47 @@ export default function ResumeModal({ isOpen, onClose }) {
     >
       <div className="resume-modal-dialog">
         <div className="resume-modal-header">
-          <h3 className="resume-modal-title" id="resume-modal-title">
-            <FileText size={20} />
-            <span>Curriculum Vitae - Raiza A. Roces</span>
-          </h3>
+          <div className="resume-modal-header-top">
+            <h3 className="resume-modal-title" id="resume-modal-title">
+              <FileText size={20} className="resume-modal-title-icon" />
+              <span>Curriculum Vitae - Raiza A. Roces</span>
+            </h3>
+
+            <button
+              type="button"
+              className="modal-close-btn resume-modal-close"
+              onClick={onClose}
+              aria-label="Close Resume Viewer"
+            >
+              <X size={20} />
+            </button>
+          </div>
 
           <div className="resume-modal-actions">
             <a
               href={pdfUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary btn-sm"
+              className="btn btn-secondary resume-action-btn"
               title="Open in new browser tab"
             >
-              <ExternalLink size={15} />
+              <ExternalLink size={16} />
               <span>Open in Tab</span>
             </a>
 
             <a
               href={pdfUrl}
               download="Raiza_A_Roces_Resume.pdf"
-              className="btn btn-primary btn-sm"
+              className="btn btn-primary resume-action-btn"
+              title="Download official PDF resume"
             >
-              <Download size={15} />
+              <Download size={16} />
               <span>Download PDF</span>
             </a>
 
             <button
               type="button"
-              className="modal-close-btn"
+              className="modal-close-btn resume-desktop-close"
               onClick={onClose}
               aria-label="Close Resume Viewer"
             >
