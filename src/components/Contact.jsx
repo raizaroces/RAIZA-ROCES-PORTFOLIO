@@ -186,7 +186,7 @@ export default function Contact({ onShowToast }) {
             <div>
               <h3 className="contact-panel-title">Let's Connect</h3>
               <p className="contact-panel-desc">
-                I am actively seeking software engineering, web development, mobile development, or QA testing opportunities. Feel free to contact me through the form or via my direct profiles below.
+                I am actively seeking software engineering, web development, mobile development, QA testing or any Information Technology related opportunities. Feel free to contact me through the form or via my direct profiles below.
               </p>
             </div>
 

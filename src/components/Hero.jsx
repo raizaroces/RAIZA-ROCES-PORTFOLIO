@@ -29,7 +29,7 @@ export default function Hero({ onOpenResume }) {
             </div>
 
             <p className="hero-description">
-              4th-year Bachelor of Science in Information Technology student at Pamantasan ng Lungsod ng Pasig. Experienced in developing responsive web and mobile applications through academic and collaborative projects, with core strengths in frontend engineering, system testing, UI/UX design, and technical documentation.
+              4th-year Bachelor of Science in Information Technology student at Pamantasan ng Lungsod ng Pasig. Experienced in developing responsive web and mobile applications through academic and collaborative projects, with core strengths in frontend development, system testing, UI/UX design, and technical documentation.
             </p>
 
             {/* Action CTA Group */}
