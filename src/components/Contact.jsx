@@ -291,7 +291,7 @@ export default function Contact({ onShowToast }) {
                     id="contact-name"
                     name="name"
                     className="form-input"
-                    placeholder="e.g. Maria Santos"
+                    placeholder="Enter your full name"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -307,7 +307,7 @@ export default function Contact({ onShowToast }) {
                     id="contact-email"
                     name="email"
                     className="form-input"
-                    placeholder="e.g. maria.santos@company.com"
+                    placeholder="Enter your email address"
                     value={formData.email}
                     onChange={handleChange}
                     required

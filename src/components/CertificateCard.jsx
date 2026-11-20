@@ -137,11 +137,11 @@ export default function CertificateCard({ card, onViewCertificate }) {
             href={currentItem.documentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-secondary btn-sm btn-icon-only"
+            className="btn btn-secondary btn-sm btn-icon-only cert-open-orig-btn"
             title="Open original document in new tab"
             aria-label={`Open ${card.title} document in new tab`}
           >
-            <ExternalLink size={15} />
+            <ExternalLink size={16} />
           </a>
         </div>
 

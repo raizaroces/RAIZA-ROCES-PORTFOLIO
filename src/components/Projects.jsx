@@ -20,7 +20,7 @@ export default function Projects({ onOpenGallery }) {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="section-subtitle">
-            Showcasing all seven verified projects. Each project features its authentic <code>[MAIN]</code> thumbnail preview, verified GitHub repository or live deployment, and interactive screenshot gallery.
+            Showcasing all seven verified projects. Each project features its thumbnail preview, verified GitHub repository or live deployment, and interactive screenshot gallery.
           </p>
         </div>
 
