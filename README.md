@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Deployment](https://img.shields.io/badge/Deployment-Vercel%20%7C%20GitHub%20Pages-black?logo=vercel&logoColor=white)](https://vercel.com)
 
-A high-performance, modern, and accessible personal portfolio website built with **React 18** and **Vite**. Designed with an authentic, recruiter-friendly showcase of verified web and mobile engineering projects, industry credentials, technical competencies, and professional work ethics.
+A modern, and accessible personal portfolio website built with **React 18** and **Vite**. Designed with an authentic, recruiter-friendly showcase of verified web and mobile engineering projects, industry credentials, technical competencies, and professional work ethics.
 
 ---
 
