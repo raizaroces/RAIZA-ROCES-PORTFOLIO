@@ -8,6 +8,7 @@ import Strengths from './components/Strengths';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BackgroundMotion from './components/BackgroundMotion';
 import LightboxModal from './components/LightboxModal';
 import ResumeModal from './components/ResumeModal';
 import '../css/style.css';
@@ -72,6 +73,7 @@ export default function App() {
 
   return (
     <div className="portfolio-app">
+      <BackgroundMotion theme={theme} />
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}

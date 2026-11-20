@@ -23,9 +23,8 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="footer-bottom">
+        <div className="footer-bottom" style={{ justifyContent: 'center', textAlign: 'center' }}>
           <p>&copy; {new Date().getFullYear()} Raiza A. Roces. All rights reserved.</p>
-          <p>Built with React.js, modern web standards, responsive architecture, and authentic credentials.</p>
         </div>
       </div>
     </footer>
