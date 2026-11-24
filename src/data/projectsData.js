@@ -4,7 +4,7 @@ export const projectsData = [
     title: "Balik-Belongings: Automated Lost and Found System",
     category: "web",
     year: "2026",
-    role: "Web Developer & Documentation",
+    role: "Web Developer / QA Tester / Documentation",
     description: "An AI-powered automated lost and found web platform integrating Machine Learning, Computer Vision, and NLP. Engineered interactive commuter reporting portals, intelligent lost item image-matching interfaces, commuter feedback modules, and administrative inventory workflows.",
     tech: ["Web Application", "Artificial Intelligence", "Machine Learning", "Computer Vision", "NLP", "HTML/CSS/JS"],
     mainImage: "assets/images/projects/balik-belongings/[MAIN] BALIK-BELONGINGS LANDING PAGE.png",
